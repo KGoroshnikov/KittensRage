@@ -23,7 +23,8 @@ public class Catshot : MonoBehaviour
 
     private void Update()
     {
-        Recompute(angle, force);
+        if (Input.GetKeyDown(KeyCode.Space))
+            Recompute(angle, force);
     }
 
 
@@ -36,14 +37,14 @@ public class Catshot : MonoBehaviour
         {
             prev = pos;
             t += simDt;
-            pos = ComputeTrajectory(angle, force, t);
-            Debug.DrawLine(prev, pos, Color.cyan);
+            pos = ComputePath(angle, force, t);
+            Debug.DrawLine(prev, pos, Color.cyan, 10);
             if (t > 100) return;
         } while (!Physics.Linecast(prev, pos, out hit));
         target = hit.point;
     }
 
-    public Vector3 ComputeTrajectory(float angle, float force, float t)
+    public Vector3 ComputePath(float angle, float force, float t)
     {
         var localGravity = anchor.transform.worldToLocalMatrix 
                            * new Vector4(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z, 0);

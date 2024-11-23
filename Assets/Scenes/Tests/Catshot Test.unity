@@ -534,6 +534,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7534223956346573733, guid: 8dedd10110903ae48b839c2d870b82ba, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534223956346573733, guid: 8dedd10110903ae48b839c2d870b82ba, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7534223956346573733, guid: 8dedd10110903ae48b839c2d870b82ba, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8109115512972425247, guid: 8dedd10110903ae48b839c2d870b82ba, type: 3}
       propertyPath: m_Name
       value: CatShot
