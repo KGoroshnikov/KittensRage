@@ -270,8 +270,9 @@ GameObject:
   - component: {fileID: 390383770}
   - component: {fileID: 390383769}
   - component: {fileID: 390383774}
+  - component: {fileID: 390383775}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -387,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 390383768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.61, y: 6.899, z: -3.2339797}
+  m_LocalPosition: {x: 0.61, y: 32.9, z: -3.2339797}
   m_LocalScale: {x: 5, y: 0.5, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -425,6 +426,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &390383775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 390383768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &471789800
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,6 +453,7 @@ GameObject:
   - component: {fileID: 471789802}
   - component: {fileID: 471789801}
   - component: {fileID: 471789806}
+  - component: {fileID: 471789807}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -594,6 +609,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &471789807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471789800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &776597344
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,6 +636,7 @@ GameObject:
   - component: {fileID: 776597346}
   - component: {fileID: 776597345}
   - component: {fileID: 776597350}
+  - component: {fileID: 776597351}
   m_Layer: 0
   m_Name: Cube (7)
   m_TagString: Untagged
@@ -763,6 +792,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &776597351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776597344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &1057462117
 GameObject:
   m_ObjectHideFlags: 0
@@ -777,6 +819,7 @@ GameObject:
   - component: {fileID: 1057462119}
   - component: {fileID: 1057462118}
   - component: {fileID: 1057462123}
+  - component: {fileID: 1057462124}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -932,6 +975,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1057462124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057462117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &1183099618
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +1002,7 @@ GameObject:
   - component: {fileID: 1183099620}
   - component: {fileID: 1183099619}
   - component: {fileID: 1183099624}
+  - component: {fileID: 1183099625}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -1101,6 +1158,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1183099625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183099618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &1751616991
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1185,7 @@ GameObject:
   - component: {fileID: 1751616993}
   - component: {fileID: 1751616992}
   - component: {fileID: 1751616997}
+  - component: {fileID: 1751616998}
   m_Layer: 0
   m_Name: Cube (8)
   m_TagString: Untagged
@@ -1270,6 +1341,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1751616998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1751616991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &1891723009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,6 +1368,7 @@ GameObject:
   - component: {fileID: 1891723011}
   - component: {fileID: 1891723010}
   - component: {fileID: 1891723015}
+  - component: {fileID: 1891723016}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1439,6 +1524,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1891723016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891723009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &1936614369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1551,7 @@ GameObject:
   - component: {fileID: 1936614371}
   - component: {fileID: 1936614370}
   - component: {fileID: 1936614375}
+  - component: {fileID: 1936614376}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -1608,6 +1707,19 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1936614376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936614369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageMultiplier: 1
 --- !u!1 &2048310433
 GameObject:
   m_ObjectHideFlags: 0
