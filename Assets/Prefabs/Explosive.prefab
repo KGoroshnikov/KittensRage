@@ -128,6 +128,7 @@ MonoBehaviour:
   system: {fileID: 5168620387835693154}
   force: 500
   radiusFactor: 0.3
+  damageMin: 30
 --- !u!54 &8676892397950473871
 Rigidbody:
   m_ObjectHideFlags: 0
