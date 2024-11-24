@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class ThrowableCat : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
     [SerializeField] private float animationSpeed = 1;
     private CatSling catSling;
+    private Rigidbody rb;
 
-    private void Awake()
+    protected virtual void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
     }
 
@@ -22,18 +23,21 @@ public class ThrowableCat : MonoBehaviour
         time = 0;
     }
 
-    public void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         if (!sent) return;
         transform.position = catSling.ComputePath(time);
         time += Time.fixedDeltaTime * animationSpeed;
     }
 
-    private void OnCollisionEnter()
+    protected virtual void OnCollisionEnter()
     {
-        transform.parent = null;
-        sent = false;
-        rb.useGravity = true;
-        rb.linearVelocity = catSling.ComputePathVelocity(time);
+        if (sent)
+        {
+            transform.parent = null;
+            sent = false;
+            rb.useGravity = true;
+            rb.linearVelocity = catSling.ComputePathVelocity(time);
+        }
     }
 }
