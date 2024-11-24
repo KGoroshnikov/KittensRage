@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 2056453474361533180}
   - component: {fileID: 5096326823726015173}
   - component: {fileID: 8092192883372612218}
-  - component: {fileID: 1422745050813509229}
   - component: {fileID: 8543289198993200482}
   - component: {fileID: 8676892397950473871}
+  - component: {fileID: 8148646811501916628}
+  - component: {fileID: 5762463758914375758}
+  - component: {fileID: 4199109678178909772}
   m_Layer: 0
   m_Name: Explosive
   m_TagString: Untagged
@@ -90,29 +92,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &1422745050813509229
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7725685886915596219}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &8543289198993200482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7e20d89a0403fb5a7b1e55a67c627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  affectedGroups:
+  - {fileID: 0}
   system: {fileID: 5168620387835693154}
   force: 500
   radiusFactor: 0.3
   damageMin: 30
+  chainReactionDelay: 0.3
+  explodeByClick: 0
 --- !u!54 &8676892397950473871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -156,6 +139,73 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8148646811501916628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725685886915596219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 100
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8543289198993200482}
+        m_TargetAssemblyTypeName: Explosive, Assembly-CSharp
+        m_MethodName: Explode
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5762463758914375758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725685886915596219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeVelocityLimit: 10
+  damageMultiplier: 1
+--- !u!65 &4199109678178909772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7725685886915596219}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1001 &7385447465584242190
 PrefabInstance:
   m_ObjectHideFlags: 0

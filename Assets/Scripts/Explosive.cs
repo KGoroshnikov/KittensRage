@@ -1,50 +1,68 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 public class Explosive : MonoBehaviour
 {
+    [SerializeField] private Transform[] affectedGroups;
+    
     [SerializeField] private ParticleSystem system;
     [SerializeField] private float force = 500f;
     [SerializeField] private float radiusFactor = 0.3f;
     [SerializeField] private float damageMin = 1f;
+    [SerializeField] private float chainReactionDelay = 0.3f;
+    
+    [Space, SerializeField] private bool explodeByClick = true;
     
     private float Radius => Mathf.Sqrt(force) * radiusFactor;
 
     public void Update()
     {
-        if (!Input.GetKeyDown(KeyCode.E)) return;
-        var objects = FindObjectsByType<GameObject>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
-        Explode(objects);
+        if (!explodeByClick || !Input.GetKeyDown(KeyCode.E)) return;
+        Explode();
     }
 
-    public void Explode(GameObject[] objects)
+
+    public void Explode()
     {
-        foreach (var o in objects)
-            if (o != gameObject)
+        var rigidbodies = new List<Rigidbody>();
+        foreach (var group in affectedGroups)
+            group.GetComponentsInChildren(false, rigidbodies);
+
+        foreach (var rb in rigidbodies)
+            if (rb.gameObject != gameObject)
             {
-                var dst = Vector3.Distance(o.transform.position, transform.position);
+                var dst = Vector3.Distance(rb.transform.position, transform.position);
                 if (dst > Radius) continue;
-                
-                if (o.TryGetComponent(out Explosive explosive))
+
+                if (rb.TryGetComponent(out Explosive explosive))
                 {
-                    explosive.Explode(objects);
+                    explosive.Invoke(nameof(Explode), chainReactionDelay);
                     continue;
                 }
 
-                if (o.TryGetComponent(out HealthManager manager))
+                if (rb.TryGetComponent(out HealthManager manager))
                 {
-                    var damage = damageMin * Radius / dst;
-                    Debug.Log($"Object {o.name} damaged: {damage}");
+                    var dmgScale = Radius / dst;
+                    var damage = damageMin * dmgScale * dmgScale;
+                    Debug.Log($"Object {rb.name} damaged: {damage}");
                     manager.ChangeHealth(-damage);
                 }
 
-
-                if (o.TryGetComponent<Rigidbody>(out var rb))
-                    rb.AddExplosionForce(force, transform.position, Radius);
+                rb.AddExplosionForce(force, transform.position, Radius);
             }
+
         system.transform.localScale *= Radius;
         system.transform.parent = null;
         system.gameObject.SetActive(true);
         Destroy(gameObject);
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }
