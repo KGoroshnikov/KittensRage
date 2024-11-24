@@ -10,7 +10,7 @@ public class Explosive : MonoBehaviour
     [SerializeField] private Explosion system;
     [SerializeField] private float force = 500f;
     [SerializeField] private float radiusFactor = 0.3f;
-    private float radiusExplosionMul = 0.2f;
+    [SerializeField] private float radiusExplosionMul = 0.2f;
     [SerializeField] private float damageMin = 1f;
     [SerializeField] private float chainReactionDelay = 0.3f;
     
@@ -53,8 +53,8 @@ public class Explosive : MonoBehaviour
 
                 rb.AddExplosionForce(force, transform.position, Radius);
             }
-
-        system.transform.localScale *= (Radius * radiusExplosionMul);
+        
+        system.transform.localScale *= Radius * radiusExplosionMul;
         system.transform.parent = null;
         system.PlayExplosion();
         Destroy(gameObject);
