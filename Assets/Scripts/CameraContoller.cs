@@ -2,44 +2,52 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 0.1f;
-    [SerializeField] private float zoomSpeed = 0.5f;
-    [SerializeField] private float minZoom = 5f;
-    [SerializeField] private float maxZoom = 50f;
+    [SerializeField] private float moveSpeed = 0.1f; // Базовая скорость движения
+    [SerializeField] private float zoomSpeed = 0.5f; // Скорость масштабирования
+    [SerializeField] private float minZoom = 5f; // Минимальный зум
+    [SerializeField] private float maxZoom = 50f; // Максимальный зум
+    [SerializeField] private float smoothTime = 0.1f; // Время сглаживания движения
 
-    private Vector2 touchStart;
-    private Vector2 touchMid;
+    private Vector2 lastTouchPosition; // Последняя позиция касания
+    private Vector3 velocity = Vector3.zero; // Текущая скорость движения камеры
+    private Vector3 targetPosition; // Целевая позиция камеры
     private Camera cam;
-
-    private int fps;
 
     void Start()
     {
-        Application.targetFrameRate = 60;
         cam = Camera.main;
+        targetPosition = cam.transform.position; // Устанавливаем начальную цель
     }
 
     void Update()
     {
-        fps = (int)(1.0/Time.deltaTime);
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
             {
-                touchStart = touch.position;
-                touchMid = touchStart;
+                lastTouchPosition = touch.position;
+                velocity = Vector3.zero; // Сбрасываем инерцию
             }
             else if (touch.phase == TouchPhase.Moved)
             {
-                Vector3 direction = touchMid - touch.position;
-                touchMid = touch.position;
-                cam.transform.position += new Vector3(-direction.x, direction.y) * moveSpeed;
+                // Рассчитываем направление движения
+                Vector2 delta = (Vector2)touch.position - lastTouchPosition;
+                lastTouchPosition = touch.position;
+
+                // Игнорируем наклон по X, используя проекцию направления на горизонтальную плоскость
+                Vector3 forward = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized;
+                Vector3 right = new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized;
+
+                // Преобразуем движение в зависимости от горизонтального направления камеры
+                Vector3 direction = right * -delta.x + forward * -delta.y;
+
+                // Обновляем целевую позицию
+                targetPosition += direction * moveSpeed;
             }
         }
-
-        if (Input.touchCount == 2)
+        else if (Input.touchCount == 2)
         {
             Touch touchZero = Input.GetTouch(0);
             Touch touchOne = Input.GetTouch(1);
@@ -53,15 +61,13 @@ public class CameraController : MonoBehaviour
             float difference = currentMagnitude - prevMagnitude;
 
             Zoom(difference * zoomSpeed);
-        }
-    }
 
-    void OnGUI()
-    {
-        GUIStyle guiStyle = new GUIStyle();
-        guiStyle.normal.textColor = Color.red;
-        guiStyle.fontSize = 30;
-        GUI.Label(new Rect(150, 50, 300, 200), "FPS: " + fps.ToString(), guiStyle);
+            // Сбрасываем цель, чтобы избежать конфликта между зумом и движением
+            targetPosition = cam.transform.position;
+        }
+
+        // Плавно движем камеру к целевой позиции
+        cam.transform.position = Vector3.SmoothDamp(cam.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
     void Zoom(float increment)
