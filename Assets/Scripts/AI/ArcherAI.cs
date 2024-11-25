@@ -20,11 +20,12 @@ namespace AI
 
         public void Attack()
         {
+            if (!target) CancelInvoke(nameof(Attack));
             var velocity = ComputeArrowVelocity().normalized * (1 - noiseFactor);
             velocity += Random.insideUnitSphere * noiseFactor;
             velocity *= arrowSpeed;
             
-            var projectile = Instantiate(projectilePrefab, arrowSource.position, Quaternion.identity);
+            var projectile = Instantiate(projectilePrefab, arrowSource.position, Quaternion.identity, null);
             arrowSource.transform.forward = velocity.normalized;
             projectile.transform.forward = velocity.normalized;
             if (projectile.TryGetComponent(out Rigidbody rb))

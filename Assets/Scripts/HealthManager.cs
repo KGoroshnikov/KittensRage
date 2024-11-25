@@ -18,7 +18,7 @@ public class HealthManager : MonoBehaviour
         health += delta;
         if (health > healthMax) health = healthMax;
         if (health < 0) onZeroHealth.Invoke();
-        else onHealthChanged.Invoke(health, healthMax	);
+        else onHealthChanged.Invoke(health, healthMax);
     }
 
     public void DestroyThis() => Destroy(gameObject);
