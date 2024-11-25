@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: dc0e7a6e94e39ec438113676b99e09ff
+timeCreated: 1482693370
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79310
+  packageName: FastMobileBloom
+  packageVersion: 1.0
+  assetPath: Assets/FastMobileBloom/testScene/Materials/letters.mat
+  uploadId: 231911

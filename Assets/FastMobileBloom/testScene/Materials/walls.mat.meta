@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7c724882742aef34ea736d053bfaafed
+timeCreated: 1482692350
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79310
+  packageName: FastMobileBloom
+  packageVersion: 1.0
+  assetPath: Assets/FastMobileBloom/testScene/Materials/walls.mat
+  uploadId: 231911

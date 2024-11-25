@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e9f58713180f25644b966039b01dc192
+timeCreated: 1482692472
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79310
+  packageName: FastMobileBloom
+  packageVersion: 1.0
+  assetPath: Assets/FastMobileBloom/testScene/Hotel.unity
+  uploadId: 231911
