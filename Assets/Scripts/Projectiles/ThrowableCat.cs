@@ -14,23 +14,26 @@ namespace Projectiles
             rb.useGravity = false;
         }
 
-        private float time;
-        public bool IsSent { get; private set; }
+        protected float Time { get; private set; }
+        public bool IsSent { get; protected set; }
 
         public virtual void Send(CatSling sling)
         {
             Sling = sling;
             Sling.Cat = null;
             IsSent = true;
-            time = 0;
+            Time = 0;
         }
 
-        protected virtual void FixedUpdate()
+        protected void FixedUpdate()
         {
             if (!IsSent) return;
-            transform.position = Sling.ComputePath(time);
-            time += Time.fixedDeltaTime * animationSpeed;
+            transform.position = Sling.ComputePath(Time);
+            Time += UnityEngine.Time.fixedDeltaTime * animationSpeed;
+            InFlightUpdate();
         }
+
+        protected virtual void InFlightUpdate() {}
 
         protected virtual void OnCollisionEnter()
         {
@@ -38,7 +41,7 @@ namespace Projectiles
             transform.parent = null;
             IsSent = false;
             rb.useGravity = true;
-            rb.linearVelocity = Sling.ComputePathVelocity(time);
+            rb.linearVelocity = Sling.ComputePathVelocity(Time);
         }
     }
 }

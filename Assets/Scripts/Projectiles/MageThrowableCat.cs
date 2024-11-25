@@ -11,9 +11,8 @@ namespace Projectiles
         private bool abilityUsed;
         
         
-        protected override void FixedUpdate()
+        protected override void InFlightUpdate()
         {
-            base.FixedUpdate();
             if (abilityUsed || Input.touchCount <= 0) return;
             var touch = Input.GetTouch(0);
             
