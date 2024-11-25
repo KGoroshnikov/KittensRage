@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4503239465977391809}
   - component: {fileID: 6001268865640696876}
   - component: {fileID: 6841162325095205813}
-  - component: {fileID: 824721781827665966}
+  - component: {fileID: 4419966256773978885}
   m_Layer: 0
   m_Name: glassWall
   m_TagString: Untagged
@@ -107,9 +107,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.020897526, y: 0.021093111, z: 0.00070598803}
-  m_Center: {x: 0.00045976334, y: -0.000608956, z: 0}
---- !u!54 &824721781827665966
+  m_Size: {x: 0.017355429, y: 0.019283827, z: 0.00070598803}
+  m_Center: {x: 0.00038035252, y: -0.00043685207, z: 1.3697681e-18}
+--- !u!54 &4419966256773978885
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

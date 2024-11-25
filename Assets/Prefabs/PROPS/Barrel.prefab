@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9039242958781818306}
   - component: {fileID: 6585908050526368323}
   - component: {fileID: 3974475289754200816}
+  - component: {fileID: 3040304700372850276}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -106,5 +107,32 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0155959055, y: 0.017697573, z: 0.020616954}
-  m_Center: {x: -0.00041936175, y: 4.656612e-10, z: -0.0019904193}
+  m_Size: {x: 0.010720825, y: 0.012014313, z: 0.020616952}
+  m_Center: {x: -0.00024165811, y: 0.00006141663, z: -0.0019904196}
+--- !u!54 &3040304700372850276
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749244406956614033}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
