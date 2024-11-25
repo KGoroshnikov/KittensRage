@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Projectiles
 {
-    public class Arrow : MonoBehaviour
+    public class Projectile : MonoBehaviour
     {
         [SerializeField] private float damage = 10;
 

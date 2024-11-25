@@ -5,7 +5,7 @@ namespace Projectiles
     public class ThrowableCat : MonoBehaviour
     {
         [SerializeField] private float animationSpeed = 1;
-        private CatSling catSling;
+        protected CatSling Sling { get; set; }
         private Rigidbody rb;
 
         protected virtual void Awake()
@@ -15,31 +15,30 @@ namespace Projectiles
         }
 
         private float time;
-        private bool sent;
-        public void Send(CatSling sling)
+        public bool IsSent { get; private set; }
+
+        public virtual void Send(CatSling sling)
         {
-            catSling = sling;
-            catSling.Cat = null;
-            sent = true;
+            Sling = sling;
+            Sling.Cat = null;
+            IsSent = true;
             time = 0;
         }
 
         protected virtual void FixedUpdate()
         {
-            if (!sent) return;
-            transform.position = catSling.ComputePath(time);
+            if (!IsSent) return;
+            transform.position = Sling.ComputePath(time);
             time += Time.fixedDeltaTime * animationSpeed;
         }
 
         protected virtual void OnCollisionEnter()
         {
-            if (sent)
-            {
-                transform.parent = null;
-                sent = false;
-                rb.useGravity = true;
-                rb.linearVelocity = catSling.ComputePathVelocity(time);
-            }
+            if (!IsSent) return;
+            transform.parent = null;
+            IsSent = false;
+            rb.useGravity = true;
+            rb.linearVelocity = Sling.ComputePathVelocity(time);
         }
     }
 }

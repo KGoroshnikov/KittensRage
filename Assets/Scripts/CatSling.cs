@@ -8,8 +8,8 @@ public class CatSling : MonoBehaviour
     [SerializeField] private Transform anchor;
     [SerializeField] private float simDt = 0.1f;
     
-    [Space, SerializeField, Range(0, 60)] private float angle = 45;
-    [SerializeField, Range(3, 50)] private float force = 10;
+    [Space, Range(0, 60)] public float angle = 45;
+    [Range(3, 50)] public float force = 10;
     
     
     [Space]
@@ -29,6 +29,8 @@ public class CatSling : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) Recompute();
         if (Input.GetKeyDown(KeyCode.Space)) Cat.Send(this);
     }
+
+    public void RotateAnchor(float angle) => anchor.Rotate(anchor.forward, angle);
 
 
     public void Recompute()
