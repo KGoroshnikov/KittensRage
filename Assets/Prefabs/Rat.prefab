@@ -152,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 1057081286648118911}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 0.01138}
+  m_LocalPosition: {x: -0, y: -0, z: 0.01642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1114,7 +1114,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -1187,7 +1187,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 4722748453944741627, guid: f0bf810f3c4d3a748af3a9fd2d6b7ad7, type: 3}
   arrowSource: {fileID: 2747317473712758683}
   attackTime: 1
-  arrowSpeed: 10
+  arrowSpeed: 25
   noiseFactor: 0.025
 --- !u!1 &8664067578189411923
 GameObject:
