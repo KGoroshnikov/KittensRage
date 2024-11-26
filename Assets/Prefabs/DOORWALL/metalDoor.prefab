@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1082860278074190408}
   - component: {fileID: 8401364541192009366}
   - component: {fileID: 8423621485247096310}
+  - component: {fileID: 7660578562594174037}
   m_Layer: 0
   m_Name: metalDoor
   m_TagString: Untagged
@@ -152,6 +153,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0058920262, y: 0.020000022, z: 0.0037962047}
   m_Center: {x: 0.0067220666, y: 0, z: 0.00040194293}
+--- !u!114 &7660578562594174037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3776773218172585770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 200
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7660578562594174037}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4907702778388955565
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +197,7 @@ GameObject:
   - component: {fileID: 4448929673420862660}
   - component: {fileID: 5018712020092108795}
   - component: {fileID: 2365320007336184073}
+  - component: {fileID: 1326877231315862618}
   m_Layer: 0
   m_Name: Cube.134
   m_TagString: Untagged
@@ -260,6 +294,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0014914315, y: 0.008150986, z: 0.01401663}
   m_Center: {x: -8.149071e-10, y: 0.0038225292, z: 0.0018228285}
+--- !u!114 &1326877231315862618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907702778388955565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 200
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1326877231315862618}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7427431689085459694
 GameObject:
   m_ObjectHideFlags: 0

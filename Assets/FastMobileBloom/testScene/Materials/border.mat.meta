@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f8bb26225d6d30047a27fed6252f402b
+timeCreated: 1482693370
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 79310
+  packageName: FastMobileBloom
+  packageVersion: 1.0
+  assetPath: Assets/FastMobileBloom/testScene/Materials/border.mat
+  uploadId: 231911

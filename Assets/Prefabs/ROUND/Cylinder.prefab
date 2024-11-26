@@ -310,6 +310,7 @@ GameObject:
   - component: {fileID: 5643627457844190465}
   - component: {fileID: 1471015837933926436}
   - component: {fileID: 36506637918912028}
+  - component: {fileID: 4090817810992432492}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -387,6 +388,38 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4090817810992432492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4952753584451411041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 100
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4090817810992432492}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7087128070287263681
 GameObject:
   m_ObjectHideFlags: 0
