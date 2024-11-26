@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 9178395404684620102}
   - component: {fileID: 5990332566358537114}
   - component: {fileID: 7776217562731026662}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hbrickCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

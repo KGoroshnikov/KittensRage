@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5405550910721197824}
   - component: {fileID: 7417763968253850431}
   - component: {fileID: 2498010287085437492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: toxic
   m_TagString: Untagged
   m_Icon: {fileID: 0}

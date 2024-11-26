@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 925244569836381640}
   - component: {fileID: 6411302605940275000}
   - component: {fileID: 6141908846220887753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hwoodCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

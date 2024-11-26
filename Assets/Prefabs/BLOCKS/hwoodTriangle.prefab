@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4185601979001283297}
   - component: {fileID: 2084737889958132278}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 8174140651420078468}
   - component: {fileID: 6922760200367774703}
   - component: {fileID: 7379684833489718868}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hwoodTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

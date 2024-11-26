@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6841162325095205813}
   - component: {fileID: 4419966256773978885}
   - component: {fileID: 3111966921845640911}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: glassWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}

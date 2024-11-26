@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7812234003022647231}
   - component: {fileID: 8239012730133448500}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 3791269985699401106}
   - component: {fileID: 718572807986867073}
   - component: {fileID: 2353934158696535351}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hbrickTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

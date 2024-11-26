@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 436459875559090545}
   - component: {fileID: 4881580242586213495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brickDoorWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 3821232587911216886}
   - component: {fileID: 8731696480945038802}
   - component: {fileID: 1578368692398437753}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.134
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 1412019473623128151}
   - component: {fileID: 4567165600344328460}
   - component: {fileID: 3514310541169455406}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wallDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}

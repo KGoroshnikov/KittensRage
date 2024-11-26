@@ -35,7 +35,6 @@ public class CatSling : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) Recompute();
         if (Input.GetKeyDown(KeyCode.Space) && !cat.IsSent)
         {
-            // TODO: Здесь вызывать анимацию
             cat.Send(this);
             LoadMatrices();
             animator.Play("Launch", -1, 0);

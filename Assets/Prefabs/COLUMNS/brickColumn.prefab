@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3226218064894050147}
   - component: {fileID: 3784988953823884981}
   - component: {fileID: 5571771549395087935}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brickColumn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1863101121148548990}
   - component: {fileID: 267391204372537296}
   - component: {fileID: 8732162499582414043}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.093
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 7993234784758688299}
   - component: {fileID: 2685262080245486963}
   - component: {fileID: 491061355511229552}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.092
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 461781042941908414}
   - component: {fileID: 3904670069624799640}
   - component: {fileID: 3607173962045750348}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.091
   m_TagString: Untagged
   m_Icon: {fileID: 0}

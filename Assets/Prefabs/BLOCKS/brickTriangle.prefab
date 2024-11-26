@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6463899067241100740}
   - component: {fileID: 6325153976162794807}
   - component: {fileID: -141889137505814255}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: brickTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

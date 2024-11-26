@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8709556244354366924}
   - component: {fileID: 5787816948909402871}
   - component: {fileID: 1655709733569742595}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: glassTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

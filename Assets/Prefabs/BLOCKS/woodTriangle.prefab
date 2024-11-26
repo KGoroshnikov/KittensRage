@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8985596000659347740}
   - component: {fileID: 784310259365569844}
   - component: {fileID: 4331808454452115360}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: woodTriangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

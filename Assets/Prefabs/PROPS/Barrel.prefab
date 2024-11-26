@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3040304700372850276}
   - component: {fileID: 7209185280561049026}
   - component: {fileID: 8507471158261734680}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,10 +154,10 @@ MonoBehaviour:
   affectedGroups:
   - {fileID: 0}
   system: {fileID: 2789532058081814824}
-  force: 2500
-  radiusFactor: 0.08
+  force: 2000
+  radiusFactor: 0.06
   radiusExplosionMul: 0.3
-  damageMin: 30
+  damageMin: 20
   chainReactionDelay: 0.3
   explodeByClick: 1
 --- !u!114 &8507471158261734680
@@ -240,9 +240,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4966833071443329531, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461791948680057886, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7461791948680057886, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7751412811094069881, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751412811094069881, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7751412811094069881, guid: d54a738ce96f98548ab1aa86f0f40cd2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
