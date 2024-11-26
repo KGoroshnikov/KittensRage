@@ -11,9 +11,9 @@ namespace Projectiles
             base.Send(sling);
         }
 
-        protected override void OnCollisionEnter()
+        protected override void OnCollisionEnter(Collision collision)
         {
-            base.OnCollisionEnter();
+            base.OnCollisionEnter(collision);
             Sling.RotateAnchor(angle);
         }
     }

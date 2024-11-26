@@ -10,17 +10,26 @@ namespace Projectiles
         [SerializeField] private float twinsSplitRadius = 2;
         [SerializeField] private float twinsSplitTime = 1;
         [SerializeField] private float rotationSpeed = 180;
-        private Collider collider;
+        private SphereCollider collider;
         
         private bool abilityUsed;
-        private float time;
+        private Rigidbody rbR;
+        private Rigidbody rbL;
 
         protected override void Awake()
         {
-            collider = GetComponent<Collider>();
-            for (var i = 0; i < transform.childCount; i++)
-                if (transform.GetChild(i).TryGetComponent<Rigidbody>(out var rb)) 
-                    rb.useGravity = false;
+            collider = GetComponent<SphereCollider>();
+            if (right.TryGetComponent(out rbR))
+            {
+                rbR.useGravity = false;
+                rbR.Sleep();
+            }
+
+            if (left.TryGetComponent(out rbL))
+            {
+                rbL.useGravity = false;
+                rbL.Sleep();
+            }
         }
 
         protected override void InFlightUpdate()
@@ -28,37 +37,40 @@ namespace Projectiles
             transform.Rotate(Vector3.forward, rotationSpeed * UnityEngine.Time.fixedDeltaTime);
             if (abilityUsed)
             {
-                if (time > 1) return;
-                var dt = UnityEngine.Time.fixedDeltaTime / twinsSplitTime;
-                right.transform.localPosition += transform.right * (twinsSplitRadius * dt);
-                left.transform.localPosition -= transform.right * (twinsSplitRadius * dt);
-                time += dt;
+                rbR.linearVelocity = Sling.ComputePathVelocity(Time);
+                rbL.linearVelocity = Sling.ComputePathVelocity(Time);
                 return;
             }
-            if (Input.touchCount <= 0) return;
+            if (!Input.GetMouseButton(0)) return;
+            Debug.Log("Twins Activated!");
             SplitTwins();
             abilityUsed = true;
         }
 
         private void SplitTwins()
         {
-            collider.bounds.Expand(twinsSplitRadius);
-            time = 0;
+            // TODO: Fuck this code!!!
+            right.transform.position += transform.right * twinsSplitRadius;
+            left.transform.position -= transform.right * twinsSplitRadius;
+            collider.radius += twinsSplitRadius;
         }
 
         private void OnTriggerEnter(Collider other)
         {
             if (!IsSent) return;
-            for (var i = 0; i < transform.childCount; i++)
-            {
-                var child = transform.GetChild(i);
-                if (child.TryGetComponent<Rigidbody>(out var rb))
-                {
-                    rb.useGravity = true;
-                    rb.linearVelocity = Sling.ComputePathVelocity(Time);
-                }
-                child.parent = null;
-            }
+            if (other.gameObject == right) return;
+            if (other.gameObject == left) return;
+            
+            rbR.useGravity = true;
+            rbR.linearVelocity = Sling.ComputePathVelocity(Time);
+            rbR.WakeUp();
+            right.transform.parent = null;
+            
+            rbL.useGravity = true;
+            rbL.linearVelocity = Sling.ComputePathVelocity(Time);
+            rbL.WakeUp();
+            left.transform.parent = null;
+            
             IsSent = false;
             Destroy(gameObject);
         }

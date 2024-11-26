@@ -13,13 +13,14 @@ namespace Projectiles
         
         protected override void InFlightUpdate()
         {
-            if (abilityUsed || Input.touchCount <= 0) return;
-            var touch = Input.GetTouch(0);
+            if (abilityUsed) return;
+            if (!Input.GetMouseButton(0)) return;
             
             var camera = Camera.main;
             if (!camera) return;
-            var ray = camera.ScreenPointToRay(touch.position);
+            var ray = camera.ScreenPointToRay(Input.mousePosition);
             if (!Physics.Raycast(ray, out var hit)) return;
+            Debug.Log("Mage Activated!");
             SendFireball(hit);
             abilityUsed = false;
         }
