@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 436459875559090545}
+  - component: {fileID: 4881580242586213495}
   m_Layer: 0
   m_Name: brickDoorWall
   m_TagString: Untagged
@@ -33,6 +34,33 @@ Transform:
   - {fileID: 7859787964774313816}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &4881580242586213495
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710244138633359889}
+  serializedVersion: 4
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6939148014573046712
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +73,7 @@ GameObject:
   - component: {fileID: 6375576800535691246}
   - component: {fileID: 3821232587911216886}
   - component: {fileID: 8731696480945038802}
+  - component: {fileID: 1578368692398437753}
   m_Layer: 0
   m_Name: Cube.134
   m_TagString: Untagged
@@ -141,6 +170,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0014914315, y: 0.008150986, z: 0.01401663}
   m_Center: {x: -8.149071e-10, y: 0.0038225292, z: 0.0018228285}
+--- !u!114 &1578368692398437753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939148014573046712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 100
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1578368692398437753}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8260895285139111947
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,6 +216,7 @@ GameObject:
   - component: {fileID: 2327514845114684640}
   - component: {fileID: 1412019473623128151}
   - component: {fileID: 4567165600344328460}
+  - component: {fileID: 3514310541169455406}
   m_Layer: 0
   m_Name: wallDoor
   m_TagString: Untagged
@@ -294,3 +356,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0021303114, y: 0.019999998, z: 0.0064888094}
   m_Center: {x: -0.00013113464, y: 0.00000011920929, z: 0.0067556445}
+--- !u!114 &3514310541169455406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8260895285139111947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 100
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3514310541169455406}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []

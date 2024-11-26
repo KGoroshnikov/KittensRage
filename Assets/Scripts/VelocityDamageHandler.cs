@@ -13,11 +13,18 @@ public class VelocityDamageHandler : MonoBehaviour
         var vel = other.relativeVelocity.magnitude;
         if (vel < safeVelocityLimit) return;
         var damage = vel * vel * damageMultiplier * 0.1f;
-        if (other.gameObject.TryGetComponent<VelocityDamageHandler>(out _)) damage *= 0.5f;
-        
+        // TODO: Maybe use idk??? Highly relative to engine collision tracking approach
+        // if (other.gameObject.TryGetComponent<VelocityDamageHandler>(out _))
+        // {
+        //     if (other.gameObject.TryGetComponent<HealthManager>(out var manager2))
+        //     {
+        //         var halfDamage = damage * 0.5f;
+        //         if (manager2.Health > halfDamage) 
+        //             damage = halfDamage;
+        //         manager2.ChangeHealth(-damage);
+        //     }
+        // }
         if (TryGetComponent<HealthManager>(out var manager1)) manager1.ChangeHealth(-damage);
-        if (other.gameObject.TryGetComponent<HealthManager>(out var manager2)) manager2.ChangeHealth(-damage);
-        
         Debug.Log($"Objects {name} and {other.gameObject.name} collided too hard with damage {damage}!");
     }
 }
