@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7304602434752301624}
   - component: {fileID: 2226403466253436886}
   - component: {fileID: 560657629654525326}
+  - component: {fileID: -7651487726694598577}
   m_Layer: 0
   m_Name: brickCurtain
   m_TagString: Untagged
@@ -108,3 +109,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0018257954, y: 0.014843682, z: 0.02}
   m_Center: {x: 1.3864235e-17, y: 0, z: -4.656613e-10}
+--- !u!114 &-7651487726694598577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 401763367494243385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 100
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -7651487726694598577}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
