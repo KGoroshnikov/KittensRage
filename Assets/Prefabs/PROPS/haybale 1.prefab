@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6874102920989424972}
   - component: {fileID: 793983305053023301}
   - component: {fileID: 365027152047959409}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7253563646310769286}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: haybale 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5906852452773797353}
   - component: {fileID: 3513445198232998406}
   - component: {fileID: 7620273089335077764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "B\xE9zierCircle"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 3387378199198259570}
   - component: {fileID: 2913586828456278624}
   - component: {fileID: 2328058882726422154}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

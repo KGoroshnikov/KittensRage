@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8401364541192009366}
   - component: {fileID: 8423621485247096310}
   - component: {fileID: 7660578562594174037}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: metalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -124,7 +124,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -145,7 +145,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5018712020092108795}
   - component: {fileID: 2365320007336184073}
   - component: {fileID: 1326877231315862618}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube.134
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6583548594349754934}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: metalDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
