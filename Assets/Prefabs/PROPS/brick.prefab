@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1034178583568194762}
   - component: {fileID: 4006278601222172412}
   - component: {fileID: 4179981545731270731}
+  - component: {fileID: 6500382428445432663}
   m_Layer: 0
   m_Name: brick
   m_TagString: Untagged
@@ -108,3 +109,35 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0024387932, y: 0.0068646045, z: 0.001741379}
   m_Center: {x: -0.00003775048, y: -0.00007162081, z: 0.000025225292}
+--- !u!114 &6500382428445432663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961506232624490415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthMax: 25
+  health: 0
+  onZeroHealth:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6500382428445432663}
+        m_TargetAssemblyTypeName: HealthManager, Assembly-CSharp
+        m_MethodName: DestroyThis
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
