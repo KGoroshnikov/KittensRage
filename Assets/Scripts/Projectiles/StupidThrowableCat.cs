@@ -14,6 +14,7 @@ namespace Projectiles
         protected override void OnCollisionEnter(Collision collision)
         {
             base.OnCollisionEnter(collision);
+            if (!IsSent) return;
             Sling.RotateAnchor(angle);
         }
     }
