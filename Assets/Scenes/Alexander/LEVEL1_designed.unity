@@ -285,8 +285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 316c28b2898b498086d32d382d54f30c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.1
-  angle: 45
+  animationSpeed: 3
+  angle: -45
 --- !u!135 &12806028
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2267,7 +2267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba553fd2fa845a69909f5c77384c9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.1
+  animationSpeed: 3
   fireballPrefab: {fileID: 0}
   speed: 0
   normal: {x: 0, y: 0, z: 0}
@@ -4227,7 +4227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cad5eccd734e17b3d3c98bf88e7c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 0.1
+  animationSpeed: 3
   right: {fileID: 1649109538}
   left: {fileID: 1649109537}
   twinsSplitRadius: 2
@@ -5598,13 +5598,14 @@ MonoBehaviour:
   simDt: 0.1
   angle: 30
   force: 0.078
+  forwardFixer: {x: 0, y: 0, z: 0, w: 1}
   target: {x: 106.06781, y: 4.7690783, z: 181.28001}
   cat: {fileID: 0}
   queue:
+  - {fileID: 12806026}
   - {fileID: 558917852}
   - {fileID: 1649109540}
   - {fileID: 648303631}
-  - {fileID: 12806026}
 --- !u!95 &2063863131 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6070340208827227072, guid: 14ac3a16493f30849ab3c964f2070f7a, type: 3}

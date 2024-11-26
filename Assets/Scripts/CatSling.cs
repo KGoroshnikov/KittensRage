@@ -12,7 +12,7 @@ public class CatSling : MonoBehaviour
     
     [Space, Range(0, 60)] public float angle = 45;
     [Range(0, 50)] public float force = 10;
-    
+    public Quaternion forwardFixer;
     
     [Space]
     public Vector3 target;
@@ -36,9 +36,9 @@ public class CatSling : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !cat.IsSent)
         {
             // TODO: Здесь вызывать анимацию
-            animator.Play("Launch", -1, 0);
-            LoadMatrices();
             cat.Send(this);
+            LoadMatrices();
+            animator.Play("Launch", -1, 0);
         }
 
         if (cat || queue.Count <= 0) return;
@@ -48,7 +48,7 @@ public class CatSling : MonoBehaviour
         cat.transform.localPosition = Vector3.zero;
     }
 
-    public void RotateAnchor(float angle) => anchor.Rotate(anchor.forward, angle);
+    public void RotateAnchor(float angle) => anchor.Rotate(forwardFixer * anchor.right, angle);
 
     private void LoadMatrices()
     {
