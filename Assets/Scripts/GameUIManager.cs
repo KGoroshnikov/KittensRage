@@ -15,6 +15,8 @@ public class GameUIManager : MonoBehaviour
 
     [SerializeField] private Animator animatorFade;
 
+    [SerializeField] private string nextLvlName;
+
     public void Win(int stars){
         cameraController.ActiveCameraContol(false);
         victoryAnim.gameObject.SetActive(true);
@@ -45,6 +47,26 @@ public class GameUIManager : MonoBehaviour
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
         Invoke("LoadMenu", 2);
+    }
+
+    public void NextLvl(){
+        animatorFade.enabled = true;
+        animatorFade.SetTrigger("FadeIn");
+        Invoke("LoadNextLvl", 2);
+    }
+
+    public void ReloadLvl(){
+        animatorFade.enabled = true;
+        animatorFade.SetTrigger("FadeIn");
+        Invoke("ReloadCurrentLvl", 2);
+    }
+
+    void ReloadCurrentLvl(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void LoadNextLvl(){
+        SceneManager.LoadScene(nextLvlName);
     }
 
     void LoadMenu(){

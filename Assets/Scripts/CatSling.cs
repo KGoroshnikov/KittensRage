@@ -30,6 +30,12 @@ public class CatSling : MonoBehaviour
         Gizmos.DrawLine(target + Vector3.left, target + Vector3.right);
     }
 
+    public void GetCats(List<ThrowableCat> throwableCats){
+        for(int i = 0; i < throwableCats.Count; i++){
+            queue.Add(throwableCats[i]);
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) Recompute();

@@ -6,21 +6,10 @@ public class StarsManager : MonoBehaviour
     private int currentStars = 0;
     private int queueStars = 0;
     private bool cooldown = false;
-
-    void Update()
-    {
-        if (Input.touchCount == 1)
-        {
-            Touch touch = Input.GetTouch(0);
-            if (touch.phase == TouchPhase.Began)
-            {
-                AddToQueue();
-            }
-        }
-    }
+    
     public void AddToQueue()
     {
-        if (currentStars >= 3) return;
+        if (getStars() >= 3) return;
         queueStars++;
         ProcessQueue();
     }

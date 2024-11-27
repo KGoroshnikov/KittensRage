@@ -8,19 +8,58 @@ namespace AI
     {
         [SerializeField] private Transform target;
         [SerializeField] private GameObject projectilePrefab;
+        [SerializeField] private Animator animator;
         [Space]
         [SerializeField] private Transform arrowSource;
         [SerializeField] private float attackTime = 1;
         [SerializeField] private float arrowSpeed = 10;
+        [SerializeField] private float radiusAttack;
         [SerializeField, Range(0, 0.25f)] private float noiseFactor = 0.025f;
+        private enum state{
+            idle, attack
+        }
+        private state m_state;
         private void Start()
         {
             InvokeRepeating(nameof(Attack), attackTime, attackTime);
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, radiusAttack);
+        }
+
+        void Update(){
+            if (target == null){
+                if (m_state != state.idle){
+                    m_state = state.idle;
+                    animator.SetTrigger("Idle");
+                }
+                return;
+            }
+            if (m_state == state.attack) {
+                Vector3 dir = new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.y);
+                transform.forward = -dir;
+                return;
+            }
+            if (Vector3.Distance(transform.position, target.position) <= radiusAttack){
+                m_state = state.attack;
+                animator.SetTrigger("Attack");
+                InvokeRepeating(nameof(Attack), attackTime, attackTime);
+            }
+        }
+
         public void Attack()
         {
-            if (!target) CancelInvoke(nameof(Attack));
+            if (!target || Vector3.Distance(transform.position, target.position) > radiusAttack){
+                CancelInvoke(nameof(Attack));
+                if (m_state != state.idle){
+                    m_state = state.idle;
+                    animator.SetTrigger("Idle");
+                }
+                return;
+            }
             var velocity = ComputeArrowVelocity().normalized * (1 - noiseFactor);
             velocity += Random.insideUnitSphere * noiseFactor;
             velocity *= arrowSpeed;

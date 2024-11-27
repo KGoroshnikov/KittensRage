@@ -54,8 +54,8 @@ public class Explosive : MonoBehaviour
                 rb.AddExplosionForce(force, transform.position, Radius);
             }
         
-        system.transform.localScale *= Radius * radiusExplosionMul;
-        system.transform.parent = null;
+        //system.transform.localScale *= Radius * radiusExplosionMul;
+        system.transform.SetParent(null);
         system.PlayExplosion();
         Destroy(gameObject);
     }
