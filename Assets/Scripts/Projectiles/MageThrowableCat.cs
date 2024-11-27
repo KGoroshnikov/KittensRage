@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Projectiles
 {
     public class MageThrowableCat : ThrowableCat
     {
         [SerializeField] private GameObject fireballPrefab;
-        [SerializeField] private float speed;
-        [SerializeField] private Vector3 normal;
+        [SerializeField] private float fireballSpeed = 100;
+        [SerializeField] private float fireballSpawnDistance = 3;
         
         private bool abilityUsed;
         
@@ -27,11 +28,11 @@ namespace Projectiles
 
         private void SendFireball(RaycastHit hit)
         {
-            var dir = hit.point - transform.position;
-            var projectile = Instantiate(fireballPrefab, transform.position + dir, Quaternion.identity, null);
+            var dir = (hit.point - transform.position).normalized;
+            var projectile = Instantiate(fireballPrefab, transform.position + dir * fireballSpawnDistance, Quaternion.identity, null);
             projectile.transform.forward = dir;
             if (projectile.TryGetComponent(out Rigidbody rb))
-                rb.linearVelocity = dir * speed;
+                rb.AddForce(dir * fireballSpeed, ForceMode.Impulse);
         }
     }
 }

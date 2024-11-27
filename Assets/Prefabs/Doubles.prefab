@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6cad5eccd734e17b3d3c98bf88e7c3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 3
+  animationSpeed: 2
   right: {fileID: 1929268151770872089}
   left: {fileID: 4582045731296519801}
   twinsSplitRadius: 2

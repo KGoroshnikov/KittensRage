@@ -151,8 +151,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79b7e20d89a0403fb5a7b1e55a67c627, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedGroups:
-  - {fileID: 0}
   system: {fileID: 2789532058081814824}
   force: 2000
   radiusFactor: 0.06
