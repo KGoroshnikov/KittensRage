@@ -49,9 +49,10 @@ namespace Projectiles
 
         private void SplitTwins()
         {
-            var shift = Vector3.forward * twinsSplitRadius;
+            // TODO: Я хз как тут написать. Даже предыдущая версия ито стабильнее работала
+            var shift = right.transform.up * twinsSplitRadius;
             right.transform.localPosition += shift;
-            left.transform.localPosition += shift;
+            left.transform.localPosition -= shift;
             collider.radius += twinsSplitRadius;
         }
 
