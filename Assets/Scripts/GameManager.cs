@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using AI;
+using Projectiles;
 using TMPro;
 using UnityEngine;
 
@@ -23,13 +25,34 @@ public class GameManager : MonoBehaviour
     private gameState m_gameState = gameState.lvlWatching;
     [SerializeField] private int countDown;
 
+    [SerializeField] private int[] catAmount;
     [SerializeField] private int maxCatTypes;
-    private enum catTypes{
+    public enum catTypes{
         err, cat, magician, doubles, stupid
     }
     private List<catTypes> chosenCats = new List<catTypes>();
 
+    [System.Serializable]
+    public class catToChoose{
+        public GameObject obj;
+        public GameObject prefThrow;
+        public catTypes catType;
+    }
+    [SerializeField] private catToChoose[] allCatsToChoose;
+    [SerializeField] private Transform posSpawn;
+    [SerializeField] private Vector3 offsetSpawn;
+    private List<ThrowableCat> spawnedPrefs = new List<ThrowableCat>();
+    
+    [SerializeField] private CatSling catSling;
+
     [SerializeField] private GameUIManager gameUIManager;
+
+    [SerializeField] private GameObject lvlObjects;
+    private int startAmountOfObjects;
+    [SerializeField] private GameObject king;
+    [SerializeField] private GameObject bigCat;
+    [SerializeField] private GigaCatAI gigaCatAI;
+    [SerializeField] private float[] percentsDestructions;
 
     void Start(){
         animatorFade.enabled = true;
@@ -39,7 +62,27 @@ public class GameManager : MonoBehaviour
         cam.transform.rotation = startCamPos.rotation;
         cam.orthographicSize = startEndCamSize.x;
         Invoke("StartGame", 1);
+
+        startAmountOfObjects = lvlObjects.transform.childCount;
+        InvokeRepeating("CheckLevel", 0.5f, 0.5f);
     }
+    void CheckLevel(){
+        float destruction = 1.0f - (float)lvlObjects.transform.childCount / (float)startAmountOfObjects;
+        if (starsManager.getStars() < 1 && destruction > percentsDestructions[0]) starsManager.AddToQueue();
+        else if (starsManager.getStars() < 2 && destruction > percentsDestructions[1]) starsManager.AddToQueue();
+        else if (starsManager.getStars() < 3 && destruction > percentsDestructions[2]) starsManager.AddToQueue();
+
+        if (king == null){
+            CancelInvoke("CheckLevel");
+            Win();
+            return;
+        }
+        if (bigCat == null){
+            CancelInvoke("CheckLevel");
+            Loose();
+        }
+    }
+
     void StartGame(){
         animatorFade.SetTrigger("FadeOut");
         InvokeRepeating("CountDown", 1, 1);
@@ -105,9 +148,39 @@ public class GameManager : MonoBehaviour
                         camAnimator.enabled = true;
                         camAnimator.SetTrigger("Choose");
 
-                        if (chosenCats.Count >= maxCatTypes){
+                        if (chosenCats.Count >= maxCatTypes){ // подготовка к игре
                             tCam = 0;
                             m_gameState = gameState.preparingGame;
+
+                            for(int i = 0; i < allCatsToChoose.Length; i++) Destroy(allCatsToChoose[i].obj); // удаляем чтобы не мешали
+
+                            for(int i = 0; i < chosenCats.Count; i++){ // идем по порядку выбора
+                                for(int j = 0; j < allCatsToChoose.Length; j++){ // находим нужного кота и его префаб
+                                    if (allCatsToChoose[j].catType == chosenCats[i]){
+
+                                        for(int k = 0; k < catAmount[i]; k++){ // смотрим количество котов по порядку выбора
+                                            GameObject prefCat = Instantiate(allCatsToChoose[j].prefThrow, 
+                                                posSpawn.position + offsetSpawn * spawnedPrefs.Count, 
+                                                allCatsToChoose[j].obj.transform.rotation);
+                                            prefCat.GetComponent<Animator>().Play("Idle", -1, Random.value);
+                                            spawnedPrefs.Add(prefCat.GetComponent<ThrowableCat>());
+                                        }
+
+                                        break;
+                                    }
+                                }
+                            }
+
+                            /*for(int i = 0; i < allCatsToChoose.Length; i++){
+                                if (chosenCats.Contains(allCatsToChoose[i].catType)){
+                                    GameObject prefCat = Instantiate(allCatsToChoose[i].prefThrow, 
+                                            posSpawn.position + offsetSpawn * spawnedPrefs.Count, 
+                                            allCatsToChoose[i].obj.transform.rotation);
+                                    spawnedPrefs.Add(prefCat.GetComponent<ThrowableCat>());
+                                }
+                                Destroy(allCatsToChoose[i].obj);
+                            }*/
+                            catSling.GetCats(spawnedPrefs);
                         }
                     }
                 }
@@ -116,16 +189,17 @@ public class GameManager : MonoBehaviour
 
         if (m_gameState == gameState.preparingGame){
             tCam += Time.deltaTime;
-            if (tCam >= 1){
+            if (tCam >= 1){ // старт игры
                 tCam = 1;
                 m_gameState= gameState.playing;
                 UIBlackLines.enabled = true;
                 UIBlackLines.SetTrigger("Hide");
                 cameraController.ActiveCameraContol(true);
+                gigaCatAI.StartGame();
 
                 // delete in prod
                 starsManager.enabled = true;
-                Invoke("Win", 5);
+                //Invoke("Win", 5);
             }
             cam.transform.position = Vector3.Lerp(choosingCamPos.position, startGameCamPos.position, Functions.SmoothLerp(tCam));
             cam.transform.rotation = Quaternion.Lerp(choosingCamPos.rotation, startGameCamPos.rotation, Functions.SmoothLerp(tCam));

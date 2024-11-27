@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyAfter: 1
-  timeDestroy: 1
+  timeDestroy: 3
   vfx: {fileID: 8507492570639877258}
   light: {fileID: 4613900350635038990}
   lightTime: 0.4

@@ -17,15 +17,53 @@ namespace AI
         [Space]
         [SerializeField] private float brainUpdateTime = 0.1f;
         private HealthManager target;
+
+        [SerializeField] private Animator animator;
+
+        [SerializeField] private Transform hpOrigin;
+        [SerializeField] private Transform hpPivot;
+        private Transform cam;
+
+        private enum state{
+            idle, walk, attack 
+        }
+        private state m_state;
+
+        void Start(){
+            cam = Camera.main.transform;
+            //FindNewTarget();
+            animator.SetTrigger("Idle");
+        }
+
+        public void StartGame(){
+            m_state = state.walk;
+            animator.SetTrigger("Walk");
+            FindNewTarget();
+        }
+
+        void Update(){
+            hpOrigin.rotation = Quaternion.LookRotation(-cam.forward);
+        }
+
+        public void UpdateHPBar(float health, float healthMax){
+            hpPivot.localScale = new Vector3(health / healthMax, 1, 1);
+        }
         
         private void MoveToTarget()
         {
+            if (m_state == state.idle) return;
+
             if (!target)
             {
                 // Target Not Exists
                 CancelInvoke(nameof(MoveToTarget));
                 FindNewTarget();
                 return;
+            }
+            if (m_state != state.walk){
+                m_state = state.walk;
+                animator.ResetTrigger("Attack");
+                animator.SetTrigger("Walk");
             }
             agent.SetDestination(target.transform.position);
             if (agent.remainingDistance > agent.stoppingDistance) return;
@@ -35,12 +73,19 @@ namespace AI
         }
         private void AttackTarget()
         {
+            if (m_state == state.idle) return;
+            
             if (!target)
             {
                 // Target not exists
-                CancelInvoke(nameof(AttackTarget));
-                FindNewTarget();
-                return;
+                //CancelInvoke(nameof(AttackTarget));
+                //FindNewTarget();
+                findTarget();
+                if (!target){
+                    CancelInvoke(nameof(AttackTarget));
+                    FindNewTarget();
+                    return;
+                }
             }
             agent.SetDestination(target.transform.position);
             if (agent.remainingDistance > agent.stoppingDistance)
@@ -50,12 +95,16 @@ namespace AI
                 InvokeRepeating(nameof(MoveToTarget), brainUpdateTime, brainUpdateTime);
                 return;
             }
+            if (m_state != state.attack){
+                m_state = state.attack;
+                animator.ResetTrigger("Walk");
+                animator.SetTrigger("Attack");
+            }
             // Attacking
             target.ChangeHealth(-damage);
         }
 
-        private void FindNewTarget()
-        {
+        void findTarget(){
             var transforms = new List<HealthManager>();
             foreach (var group in targetGroups)
                 group.GetComponentsInChildren(false, transforms);
@@ -68,11 +117,16 @@ namespace AI
                 minDst = dst;
                 target = t;
             }
+        }
+
+        private void FindNewTarget()
+        {
+            if (m_state == state.idle) return;
+
+            findTarget();
             
             // Move to target
             InvokeRepeating(nameof(MoveToTarget), brainUpdateTime, brainUpdateTime);
         }
-
-        private void Start() => FindNewTarget();
     }
 }
