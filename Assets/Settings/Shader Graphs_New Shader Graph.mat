@@ -38,7 +38,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _MulColor: 1.3
-    - _PowerColor: 1
+    - _Op: 1
+    - _PowerColor: 1.18
+    - _S: -0.96
     - _VingetteIntensity: 1.37
     - _VingettePower: 3.52
     m_Colors:
