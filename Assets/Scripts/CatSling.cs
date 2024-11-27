@@ -1,20 +1,26 @@
 using System;
-using Math;
+using System.Collections.Generic;
 using Projectiles;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CatSling : MonoBehaviour
 {
+    [SerializeField] private Animator animator;
     [SerializeField] private Transform anchor;
     [SerializeField] private float simDt = 0.1f;
     
-    [Space, SerializeField, Range(0, 60)] private float angle = 45;
-    [SerializeField, Range(3, 50)] private float force = 10;
-    
+    [Space, Range(0, 60)] public float angle = 45;
+    [Range(0, 50)] public float force = 10;
+    public Quaternion forwardFixer;
     
     [Space]
     public Vector3 target;
-    public ThrowableCat Cat;
+    [FormerlySerializedAs("Cat")] public ThrowableCat cat;
+    [FormerlySerializedAs("Queue")] public List<ThrowableCat> queue;
+
+    private Matrix4x4 w2l;
+    private Matrix4x4 l2w;
     
     private void OnDrawGizmos()
     {
@@ -27,12 +33,31 @@ public class CatSling : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R)) Recompute();
-        if (Input.GetKeyDown(KeyCode.Space)) Cat.Send(this);
+        if (Input.GetKeyDown(KeyCode.Space) && !cat.IsSent)
+        {
+            cat.Send(this);
+            LoadMatrices();
+            animator.Play("Launch", -1, 0);
+        }
+
+        if (cat || queue.Count <= 0) return;
+        cat = queue[0];
+        queue.RemoveAt(0);
+        cat.transform.SetParent(anchor);
+        cat.transform.localPosition = Vector3.zero;
     }
 
+    public void RotateAnchor(float angle) => anchor.Rotate(forwardFixer * anchor.right, angle);
+
+    private void LoadMatrices()
+    {
+        w2l = anchor.transform.worldToLocalMatrix;
+        l2w = anchor.transform.localToWorldMatrix;
+    }
 
     public void Recompute()
     {
+        LoadMatrices();
         Vector3 prev, pos = anchor.transform.position;
         RaycastHit hit;
         var t = 0f;
@@ -49,25 +74,23 @@ public class CatSling : MonoBehaviour
 
     public Vector3 ComputePath(float t)
     {
-        var localGravity = anchor.transform.worldToLocalMatrix 
-                           * new Vector4(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z, 0);
+        var localGravity = w2l * new Vector4(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z, 0);
         var vel = new Vector2(
             Mathf.Cos(angle * Mathf.Deg2Rad),
             Mathf.Sin(angle * Mathf.Deg2Rad)
         ) * force;
         var localPos = ComputeTrajectory(Vector2.zero, vel, localGravity, t);
-        return anchor.transform.localToWorldMatrix * new Vector4(localPos.x, localPos.y, 0, 1);
+        return l2w * new Vector4(localPos.x, localPos.y, 0, 1);
     }
     public Vector3 ComputePathVelocity(float t)
     {
-        var localGravity = anchor.transform.worldToLocalMatrix 
-                           * new Vector4(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z, 0);
+        var localGravity = w2l * new Vector4(Physics.gravity.x, Physics.gravity.y, Physics.gravity.z, 0);
         var vel = new Vector2(
             Mathf.Cos(angle * Mathf.Deg2Rad),
             Mathf.Sin(angle * Mathf.Deg2Rad)
         ) * force;
         var localPos = ComputeTrajectoryVelocity(vel, localGravity, t);
-        return anchor.transform.localToWorldMatrix * new Vector4(localPos.x, localPos.y, 0, 0);
+        return l2w * new Vector4(localPos.x, localPos.y, 0, 0);
     }
 
     private Vector2 ComputeTrajectory(Vector2 start, Vector2 velocity, Vector2 gravity, float time) => 

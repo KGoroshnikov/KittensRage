@@ -64,7 +64,7 @@ namespace AI
             foreach (var t in transforms)
             {
                 var dst = Vector3.Distance(t.transform.position, transform.position);
-                if (dst > minDst) return;
+                if (dst > minDst) continue;
                 minDst = dst;
                 target = t;
             }

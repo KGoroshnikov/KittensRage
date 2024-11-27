@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3122785175484001747}
   - component: {fileID: 754138190684894529}
   - component: {fileID: 5656312177712191260}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: barn
   m_TagString: Untagged
   m_Icon: {fileID: 0}

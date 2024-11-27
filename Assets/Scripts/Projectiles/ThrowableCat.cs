@@ -5,41 +5,55 @@ namespace Projectiles
     public class ThrowableCat : MonoBehaviour
     {
         [SerializeField] private float animationSpeed = 1;
-        private CatSling catSling;
+        protected CatSling Sling { get; private set; }
         private Rigidbody rb;
 
         protected virtual void Awake()
         {
             rb = GetComponent<Rigidbody>();
+            if (!rb) return;
             rb.useGravity = false;
+            rb.Sleep();
         }
 
-        private float time;
-        private bool sent;
-        public void Send(CatSling sling)
+        protected float AnimationSpeed => animationSpeed;
+        protected float Time { get; private set; }
+        public bool IsSent { get; protected set; }
+
+        public virtual void Send(CatSling sling)
         {
-            catSling = sling;
-            catSling.Cat = null;
-            sent = true;
-            time = 0;
+            if (TryGetComponent(out Animator animator)) animator.enabled = false;
+            
+            Sling = sling;
+            transform.parent = null;
+            IsSent = true;
+            Time = 0;
         }
 
-        protected virtual void FixedUpdate()
+        protected void FixedUpdate()
         {
-            if (!sent) return;
-            transform.position = catSling.ComputePath(time);
-            time += Time.fixedDeltaTime * animationSpeed;
+            if (!IsSent) return;
+            transform.position = Sling.ComputePath(Time);
+            
+            var velocity = Sling.ComputePathVelocity(Time);
+            // transform.forward = velocity.normalized;
+            if (rb) rb.linearVelocity = velocity;
+            
+            Time += UnityEngine.Time.fixedDeltaTime * animationSpeed;
+            InFlightUpdate();
         }
 
-        protected virtual void OnCollisionEnter()
+        protected virtual void InFlightUpdate() {}
+
+        protected virtual void OnCollisionEnter(Collision collision)
         {
-            if (sent)
-            {
-                transform.parent = null;
-                sent = false;
-                rb.useGravity = true;
-                rb.linearVelocity = catSling.ComputePathVelocity(time);
-            }
+            if (!IsSent) return;
+            Sling.cat = null;
+            transform.parent = null;
+            IsSent = false;
+            if (!rb) return;
+            rb.useGravity = true;
+            rb.WakeUp();
         }
     }
 }

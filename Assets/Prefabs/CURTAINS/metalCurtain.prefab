@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6407997840499553042}
   - component: {fileID: 3214724560016258408}
   - component: {fileID: 7773300321505772019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: metalCurtain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
