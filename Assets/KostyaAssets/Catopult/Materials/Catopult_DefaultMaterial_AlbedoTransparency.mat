@@ -148,7 +148,7 @@ Material:
     - SoftEdgeColor: {r: 1, g: 1, b: 1, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissColor: {r: 1.4142135, g: 1.4142135, b: 1.4142135, a: 0}
+    - _EmissColor: {r: 1.1353015, g: 1.1353015, b: 1.1353015, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HighColor: {r: 2, g: 2, b: 2, a: 0}
     - _LowColor: {r: 0.8408964, g: 0.8408964, b: 0.8408964, a: 0}

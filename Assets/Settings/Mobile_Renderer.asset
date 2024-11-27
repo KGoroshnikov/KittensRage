@@ -1,5 +1,26 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5113749560736544992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c7c56a60043b6445ad3d89d33c8e340, type: 3}
+  m_Name: MobileBloomUrp
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    Event: 500
+    blitMaterial: {fileID: 2100000, guid: 86d20c2c4ae4e9448831fab009e3f968, type: 2}
+    NumberOfPasses: 3
+    BlurAmount: 0.87
+    BloomColor: {r: 1, g: 1, b: 1, a: 1}
+    BloomAmount: 1.91
+    BloomThreshold: 0.879
 --- !u!114 &-4815797348105910165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54,7 +75,10 @@ MonoBehaviour:
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
   - {fileID: 2701342117466569710}
-  m_RendererFeatureMap: ee7b65f057187d25
+  - {fileID: 5406071877985274780}
+  - {fileID: -5113749560736544992}
+  - {fileID: 8678296061493160658}
+  m_RendererFeatureMap: ee7b65f057187d259c8b8afdba39064b2007fd49de4f08b9d2aaf8d049806f78
   m_UseNativeRenderPass: 1
   xrSystemData: {fileID: 0}
   postProcessData: {fileID: 0}
@@ -126,3 +150,67 @@ MonoBehaviour:
   passIndex: 0
   bindDepthStencilAttachment: 0
   m_Version: 1
+--- !u!114 &5406071877985274780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7d750549cf21c43b5dc301edfb17e1, type: 3}
+  m_Name: FastMobileBloomRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  bloomMaterial: {fileID: 2100000, guid: 221340b8b5ad10940ba1646f87e3770c, type: 2}
+  threshold: 0.25
+  intensity: 1
+  blurSize: 1
+  blurIterations: 2
+--- !u!114 &8678296061493160658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 864677e595539bf4bbecf0c40589f800, type: 3}
+  m_Name: PostProcessUrp
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    Event: 500
+    blitMaterial: {fileID: 2100000, guid: 0d439bd919acb754099435230811f0fe, type: 2}
+    Blur: 0
+    BlurAmount: 1
+    BlurMask: {fileID: 0}
+    Bloom: 1
+    BloomColor: {r: 1, g: 1, b: 1, a: 1}
+    BloomAmount: 1
+    BloomDiffuse: 0.897
+    BloomThreshold: 0.5
+    BloomSoftness: 0.551
+    LUT: 0
+    LutAmount: 1
+    SourceLut: {fileID: 2800000, guid: 1cee136ae98a845409f67a32d4457e3e, type: 3}
+    ImageFiltering: 1
+    Color: {r: 1, g: 1, b: 1, a: 1}
+    Contrast: 0.075
+    Brightness: 0.05
+    Saturation: 0.25
+    Exposure: 0.24
+    Gamma: 0.19
+    Sharpness: 0
+    ChromaticAberration: 0
+    Offset: 0.2
+    FishEyeDistortion: -1
+    GlitchAmount: 0
+    Distortion: 0
+    LensDistortion: 0
+    Vignette: 1
+    VignetteColor: {r: 0, g: 0, b: 0, a: 1}
+    VignetteAmount: 0.005
+    VignetteSoftness: 0.505
