@@ -232,10 +232,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba553fd2fa845a69909f5c77384c9ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationSpeed: 3
-  fireballPrefab: {fileID: 0}
-  speed: 0
-  normal: {x: 0, y: 0, z: 0}
+  animationSpeed: 2
+  fireballPrefab: {fileID: 5456981602457468843, guid: fb67d98829f183944b589dd79ea91e5c, type: 3}
+  fireballSpeed: 75
+  fireballSpawnDistance: 3
 --- !u!54 &5924093740165992777
 Rigidbody:
   m_ObjectHideFlags: 0
