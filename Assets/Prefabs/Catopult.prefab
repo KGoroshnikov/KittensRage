@@ -633,9 +633,9 @@ GameObject:
   - component: {fileID: 4975383953902035742}
   - component: {fileID: 6070340208827227072}
   - component: {fileID: 407905896771587755}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Catopult
-  m_TagString: Untagged
+  m_TagString: Sling
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -696,8 +696,10 @@ MonoBehaviour:
   animator: {fileID: 6070340208827227072}
   anchor: {fileID: 7787879923575193208}
   simDt: 0.1
-  angle: 30
-  force: 0.078
+  maxTrajectoryPoints: 100
+  lineRenderer: {fileID: 0}
+  maxAngle: 60
+  maxForce: 50
   forwardFixer: {x: 0, y: 0, z: 0, w: 1}
   target: {x: 106.06781, y: 4.7690783, z: 181.28001}
   cat: {fileID: 0}

@@ -10,6 +10,7 @@ namespace Projectiles
 
         protected virtual void Awake()
         {
+            return;
             rb = GetComponent<Rigidbody>();
             if (!rb) return;
             rb.useGravity = false;
@@ -22,6 +23,7 @@ namespace Projectiles
 
         public virtual void Send(CatSling sling)
         {
+            return;
             if (TryGetComponent(out Animator animator)) animator.enabled = false;
             
             Sling = sling;
@@ -32,6 +34,7 @@ namespace Projectiles
 
         protected void FixedUpdate()
         {
+            return;
             if (!IsSent) return;
             transform.position = Sling.ComputePath(Time);
             
@@ -40,13 +43,13 @@ namespace Projectiles
             if (rb) rb.linearVelocity = velocity;
             
             Time += UnityEngine.Time.fixedDeltaTime * animationSpeed;
-            InFlightUpdate();
         }
 
         protected virtual void InFlightUpdate() {}
 
         protected virtual void OnCollisionEnter(Collision collision)
         {
+            return;
             if (!IsSent) return;
             Sling.cat = null;
             transform.parent = null;

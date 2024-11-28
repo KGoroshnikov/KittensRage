@@ -43,9 +43,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Vector3 offsetSpawn;
     private List<ThrowableCat> spawnedPrefs = new List<ThrowableCat>();
     
-    [SerializeField] private CatSling catSling;
+    [SerializeField] private Slingshot catSling;
 
     [SerializeField] private GameUIManager gameUIManager;
+
+    [SerializeField] private Slingshot slingshot;
 
     [SerializeField] private GameObject lvlObjects;
     private int startAmountOfObjects;
@@ -128,7 +130,6 @@ public class GameManager : MonoBehaviour
                 RaycastHit hit;
                 Ray ray = cam.ScreenPointToRay(touch.position);
                 if (Physics.Raycast(ray, out hit)) {
-                    Transform objectHit = hit.transform;
                     catTypes newCat = catTypes.err;
 
                     if (hit.collider.CompareTag("Cat")) newCat = catTypes.cat;
@@ -191,14 +192,14 @@ public class GameManager : MonoBehaviour
             tCam += Time.deltaTime;
             if (tCam >= 1){ // старт игры
                 tCam = 1;
+                camAnimator.enabled = false;
                 m_gameState= gameState.playing;
                 UIBlackLines.enabled = true;
                 UIBlackLines.SetTrigger("Hide");
                 cameraController.ActiveCameraContol(true);
                 gigaCatAI.StartGame();
-
-                // delete in prod
-                starsManager.enabled = true;
+                slingshot.ActivateMe(true);
+                
                 //Invoke("Win", 5);
             }
             cam.transform.position = Vector3.Lerp(choosingCamPos.position, startGameCamPos.position, Functions.SmoothLerp(tCam));
