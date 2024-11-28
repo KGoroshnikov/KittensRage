@@ -1,79 +1,56 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Projectiles
+public class TwinsThrowableCat : ThrowableCat
 {
-    public class TwinsThrowableCat : ThrowableCat
+    private int twinsRemain = 2;
+    [SerializeField] private Rigidbody[] childsRB;
+    [SerializeField] private Vector3 offsetVel;
+    [SerializeField] private Animator animator;
+
+    public override void Launch(Vector3 vel)
     {
-        [SerializeField] private GameObject right;
-        [SerializeField] private GameObject left;
-        [SerializeField] private float twinsSplitRadius = 2;
-        [SerializeField] private float twinsSplitTime = 1;
-        [SerializeField] private float rotationSpeed = 180;
-        private SphereCollider collider;
-        
-        private bool abilityUsed;
-        private Rigidbody rbR;
-        private Rigidbody rbL;
-
-        protected override void Awake()
-        {
-            collider = GetComponent<SphereCollider>();
-            if (right.TryGetComponent(out rbR))
-            {
-                rbR.useGravity = false;
-                rbR.Sleep();
-            }
-
-            if (left.TryGetComponent(out rbL))
-            {
-                rbL.useGravity = false;
-                rbL.Sleep();
-            }
+        animator.enabled = false;
+        if (childsRB[0] != null){
+            childsRB[0].transform.SetParent(null);
+            childsRB[0].AddForce(vel, ForceMode.Impulse);
         }
-
-        protected override void InFlightUpdate()
-        {
-            transform.Rotate(Vector3.forward, rotationSpeed * UnityEngine.Time.fixedDeltaTime);
-            if (abilityUsed)
-            {
-                rbR.linearVelocity = Sling.ComputePathVelocity(Time);
-                rbL.linearVelocity = Sling.ComputePathVelocity(Time);
-                return;
-            }
-            if (!Input.GetMouseButton(0)) return;
-            Debug.Log("Twins Activated!");
-            SplitTwins();
-            abilityUsed = true;
+        if (childsRB[1] != null) {
+            childsRB[1].transform.SetParent(null);
+            childsRB[1].AddForce(vel + offsetVel, ForceMode.Impulse);
         }
+    }
 
-        private void SplitTwins()
-        {
-            // TODO: Я хз как тут написать. Даже предыдущая версия ито стабильнее работала
-            var shift = right.transform.up * twinsSplitRadius;
-            right.transform.localPosition += shift;
-            left.transform.localPosition -= shift;
-            collider.radius += twinsSplitRadius;
-        }
+    public override void MakeMeKinematic(bool _state)
+    {
+        if (childsRB[0] != null)childsRB[0].isKinematic = _state;
+        if (childsRB[1] != null)childsRB[1].isKinematic = _state;
+    }
 
-        private void OnTriggerEnter(Collider other)
-        {
-            if (!IsSent) return;
-            if (other.gameObject == right) return;
-            if (other.gameObject == left) return;
-            
-            rbR.useGravity = true;
-            rbR.linearVelocity = Sling.ComputePathVelocity(Time);
-            rbR.WakeUp();
-            right.transform.parent = null;
-            
-            rbL.useGravity = true;
-            rbL.linearVelocity = Sling.ComputePathVelocity(Time);
-            rbL.WakeUp();
-            left.transform.parent = null;
-            
-            IsSent = false;
-            Destroy(gameObject);
-        }
+    public override void SetVelocity(Vector3 vel)
+    {
+        if (childsRB[0] != null)childsRB[0].linearVelocity = vel;
+        if (childsRB[1] != null)childsRB[1].linearVelocity = vel;
+    }
+
+    public override float GetMass()
+    {
+        if (childsRB[0] != null) return childsRB[0].mass;
+        if (childsRB[1] != null) return childsRB[1].mass;
+        return 1;
+    }
+
+    public void TwinDidDamage(GameObject who, HealthManager hpDamaged){
+        Debug.Log("A");
+        hpDamaged.ChangeHealth(-hitDamange);
+
+        Destroy(who, timeDespawn);
+        twinsRemain--;
+        if (twinsRemain <= 0) Destroy(gameObject, timeDespawn);
+    }
+
+    protected override void OnCollisionEnter(Collision other)
+    {
+        // no
     }
 }

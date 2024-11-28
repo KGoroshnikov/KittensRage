@@ -16,12 +16,6 @@ public class Explosive : MonoBehaviour
     
     private float Radius => Mathf.Sqrt(force) * radiusFactor;
 
-    public void Update()
-    {
-        if (!explodeByClick || !Input.GetKeyDown(KeyCode.E)) return;
-        Explode();
-    }
-
 
     public void Explode()
     {

@@ -1,21 +1,14 @@
 ﻿using UnityEngine;
 
-namespace Projectiles
+public class StupidThrowableCat : ThrowableCat
 {
-    public class StupidThrowableCat : ThrowableCat
-    {
-        [SerializeField] private float angle = 45;
-        public override void Send(CatSling sling)
-        {
-            sling.RotateAnchor(-angle);
-            base.Send(sling);
-        }
+    [SerializeField] private Vector3 customGravity;
 
-        protected override void OnCollisionEnter(Collision collision)
-        {
-            base.OnCollisionEnter(collision);
-            if (!IsSent) return;
-            Sling.RotateAnchor(angle);
-        }
+    void Awake(){
+        rb.useGravity = false;
+    }
+
+    void FixedUpdate(){
+        rb.AddForce(customGravity, ForceMode.Acceleration);
     }
 }

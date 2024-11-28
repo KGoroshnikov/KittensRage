@@ -1,62 +1,36 @@
 ﻿using UnityEngine;
 
-namespace Projectiles
+public class ThrowableCat : MonoBehaviour
 {
-    public class ThrowableCat : MonoBehaviour
+    [SerializeField] protected Rigidbody rb;
+    [SerializeField] protected float hitDamange;
+    [SerializeField] protected float timeDespawn = 5;
+    private bool gamaged;
+
+    public virtual void Launch(Vector3 vel){
+        rb.AddForce(vel, ForceMode.Impulse);
+    }
+
+    public virtual void MakeMeKinematic(bool _state){
+        rb.isKinematic = _state;
+    }
+
+    public virtual float GetMass(){
+        return rb.mass;
+    }
+
+    public virtual void SetVelocity(Vector3 vel){
+        rb.linearVelocity = vel;
+    }
+
+    protected virtual void OnCollisionEnter(Collision other)
     {
-        [SerializeField] private float animationSpeed = 1;
-        protected CatSling Sling { get; private set; }
-        private Rigidbody rb;
-
-        protected virtual void Awake()
+        if (gamaged) return;
+        if (other.gameObject.TryGetComponent<HealthManager>(out var manager))
         {
-            return;
-            rb = GetComponent<Rigidbody>();
-            if (!rb) return;
-            rb.useGravity = false;
-            rb.Sleep();
-        }
-
-        protected float AnimationSpeed => animationSpeed;
-        protected float Time { get; private set; }
-        public bool IsSent { get; protected set; }
-
-        public virtual void Send(CatSling sling)
-        {
-            return;
-            if (TryGetComponent(out Animator animator)) animator.enabled = false;
-            
-            Sling = sling;
-            transform.parent = null;
-            IsSent = true;
-            Time = 0;
-        }
-
-        protected void FixedUpdate()
-        {
-            return;
-            if (!IsSent) return;
-            transform.position = Sling.ComputePath(Time);
-            
-            var velocity = Sling.ComputePathVelocity(Time);
-            // transform.forward = velocity.normalized;
-            if (rb) rb.linearVelocity = velocity;
-            
-            Time += UnityEngine.Time.fixedDeltaTime * animationSpeed;
-        }
-
-        protected virtual void InFlightUpdate() {}
-
-        protected virtual void OnCollisionEnter(Collision collision)
-        {
-            return;
-            if (!IsSent) return;
-            Sling.cat = null;
-            transform.parent = null;
-            IsSent = false;
-            if (!rb) return;
-            rb.useGravity = true;
-            rb.WakeUp();
+            manager.ChangeHealth(-hitDamange);
+            gamaged = true;
+            Destroy(gameObject, timeDespawn);
         }
     }
 }

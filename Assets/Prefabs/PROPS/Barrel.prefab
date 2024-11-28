@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3040304700372850276}
   - component: {fileID: 7209185280561049026}
   - component: {fileID: 8507471158261734680}
+  - component: {fileID: 8451636295437043232}
   m_Layer: 7
   m_Name: Barrel
   m_TagString: Untagged
@@ -152,12 +153,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2789532058081814824}
-  force: 2000
-  radiusFactor: 0.06
+  force: 5000
+  radiusFactor: 0.1
   radiusExplosionMul: 0.1
   damageMin: 20
   chainReactionDelay: 0.3
-  explodeByClick: 1
+  explodeByClick: 0
 --- !u!114 &8507471158261734680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 1
-  health: 0
+  healthMax: 30
+  health: 30
   onZeroHealth:
     m_PersistentCalls:
       m_Calls:
@@ -190,6 +191,20 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8451636295437043232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749244406956614033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeVelocityLimit: 4
+  damageMultiplier: 1
 --- !u!1001 &7917089810144906439
 PrefabInstance:
   m_ObjectHideFlags: 0

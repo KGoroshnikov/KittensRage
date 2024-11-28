@@ -4399,12 +4399,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8955453132492217326, guid: 14ac3a16493f30849ab3c964f2070f7a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8841446236359577173}
-    - targetCorrespondingSourceObject: {fileID: 8955453132492217326, guid: 14ac3a16493f30849ab3c964f2070f7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1299166590444735441}
-    - targetCorrespondingSourceObject: {fileID: 8955453132492217326, guid: 14ac3a16493f30849ab3c964f2070f7a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7860820009769877191}
   m_SourcePrefab: {fileID: 100100000, guid: 14ac3a16493f30849ab3c964f2070f7a, type: 3}
 --- !u!4 &1761957986064725162 stripped
 Transform:
@@ -4444,54 +4438,6 @@ MonoBehaviour:
   speedJumpIn: 1
   heightJump: 2
 --- !u!65 &8841446236359577173
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393538985484160090}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.7600001, y: 2.7748182, z: 4.37}
-  m_Center: {x: 0, y: 0.8874076, z: 0}
---- !u!114 &1299166590444735441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2393538985484160090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c56c76c2a8d91c41a05b8217831b363, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slingOrigin: {fileID: 1493367964932140438}
-  maxStretch: 5
-  launchForceMultiplier: 10
-  maxAngle: 240
-  minAngle: 105
-  trajectoryLine: {fileID: 1623944852711392807}
-  trajectoryPointsCount: 30
-  isNonStandardGravityEnabled: 0
-  gravityStrength: 9.81
-  zForce: 0
-  cameraController: {fileID: 4944940776495692408}
-  minThresoldLaunch: 2
-  queue: []
-  speedJumpIn: 1
-  heightJump: 2
---- !u!65 &7860820009769877191
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

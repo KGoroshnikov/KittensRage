@@ -30,7 +30,7 @@ public class Slingshot : MonoBehaviour
     
 
     private GameObject currentProjectile;
-    private Rigidbody rb;
+    private ThrowableCat currentCat;
     private bool isDragging = false;
     private Vector3 startPoint;
 
@@ -63,7 +63,7 @@ public class Slingshot : MonoBehaviour
                 animateJump = false;
             }
             Vector3 lerped = Vector3.Lerp(startPosCat, slingOrigin.position, Functions.SmoothLerp(tjump));
-            lerped.y = Mathf.Sin(tjump*3.14f)*heightJump;
+            lerped.y = lerped.y + Mathf.Sin(tjump*3.14f)*heightJump;
             currentProjectile.transform.position = lerped;
         }
     }
@@ -76,7 +76,7 @@ public class Slingshot : MonoBehaviour
         active = _active;
     }
 
-    private void FixedUpdate()
+    /*private void FixedUpdate()
     {
         if (currentProjectile != null)
         {
@@ -88,7 +88,7 @@ public class Slingshot : MonoBehaviour
                 rb.AddForce(Vector3.back * gravityStrength, ForceMode.Acceleration);  // Гравитация по оси Z
             }
         }
-    }
+    }*/
 
     private void HandleInput()
     {
@@ -130,14 +130,16 @@ public class Slingshot : MonoBehaviour
         direction = Vector3.zero;
         if (!loaded){
             currentProjectile = queue[queue.Count - 1].gameObject;
+            currentCat = queue[queue.Count - 1];
             queue.RemoveAt(queue.Count - 1);
 
             startPosCat = currentProjectile.transform.position;
             tjump = 0;
             animateJump = true;
 
-            rb = currentProjectile.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
+            //rb = currentProjectile.GetComponent<Rigidbody>();
+            //rb.isKinematic = true;
+            currentCat.MakeMeKinematic(true);
 
             loaded = true;
         }
@@ -182,17 +184,20 @@ public class Slingshot : MonoBehaviour
         if (direction.magnitude <= minThresoldLaunch) return;
 
         loaded = false;
-        rb.isKinematic = false;
-        if (isNonStandardGravityEnabled) rb.useGravity = false;
-        rb.linearVelocity = Vector3.zero;
-        rb.AddForce(direction * launchForceMultiplier, ForceMode.Impulse);
+        //rb.isKinematic = false;
+        currentCat.MakeMeKinematic(false);
+        //if (isNonStandardGravityEnabled) rb.useGravity = false;
+        //rb.linearVelocity = Vector3.zero;
+        currentCat.SetVelocity(Vector3.zero);
+        currentCat.Launch(direction * launchForceMultiplier);
+        //rb.AddForce(direction * launchForceMultiplier, ForceMode.Impulse);
 
     }
 
     private void DrawTrajectory(Vector3 launchDirection)
     {
         Vector3 startPosition = currentProjectile.transform.position;
-        Vector3 velocity = launchDirection * launchForceMultiplier / currentProjectile.GetComponent<Rigidbody>().mass;
+        Vector3 velocity = launchDirection * launchForceMultiplier / currentCat.GetMass();
 
         trajectoryLine.positionCount = trajectoryPointsCount;
         for (int i = 0; i < trajectoryPointsCount; i++)

@@ -12,7 +12,7 @@ namespace Projectiles
         private bool abilityUsed;
         
         
-        protected override void InFlightUpdate()
+        protected void InFlightUpdate()
         {
             if (abilityUsed) return;
             if (!Input.GetMouseButton(0)) return;
