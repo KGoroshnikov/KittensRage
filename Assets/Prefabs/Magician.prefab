@@ -234,9 +234,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 5924093740165992777}
   hitDamange: 35
-  destroyAfterDamage: 1
+  timeDespawn: 5
   fireballPrefab: {fileID: 5456981602457468843, guid: fb67d98829f183944b589dd79ea91e5c, type: 3}
-  fireballSpeed: 75
+  fireballSpeed: 10
   fireballSpawnDistance: 3
 --- !u!54 &5924093740165992777
 Rigidbody:
