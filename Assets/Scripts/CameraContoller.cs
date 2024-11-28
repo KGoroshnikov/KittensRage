@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -12,6 +13,20 @@ public class CameraController : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Vector3 targetPosition;
     private Camera cam;
+
+    [SerializeField] private Transform camPosShoot;
+    [SerializeField] private float camSizeShoot;
+    [SerializeField] private float timeShootPos;
+    private float camLerpT;
+    private Vector3 beforeShootPos;
+    private Quaternion beforeShootRot;
+    private float beforeShootSize;
+    private float sizeCamRef;
+    private Quaternion rotRef;
+    private enum shootingState{
+        none, shooting, resetting
+    }
+    private shootingState m_shootingState;
 
     private int fps;
 
@@ -28,11 +43,49 @@ public class CameraController : MonoBehaviour
         if (_active) targetPosition = cam.transform.position;
         active = _active;
     }
+    
+    public void StartShoot(){
+        beforeShootPos = cam.transform.position;
+        beforeShootRot = cam.transform.rotation;
+        beforeShootSize = cam.orthographicSize;
+        camLerpT = 0;
+
+        m_shootingState = shootingState.shooting;
+    }
+    public void StopShoot(){
+        camLerpT = 0;
+        targetPosition = beforeShootPos;
+        m_shootingState = shootingState.resetting;
+    }
 
     void Update()
     {
         fps = (int)(1.0/Time.deltaTime);
         if (!active) return;
+        if (m_shootingState == shootingState.shooting){
+            camLerpT += Time.deltaTime / timeShootPos;
+            if (camLerpT >= 1) camLerpT = 1;
+
+            cam.transform.position = Vector3.Lerp(beforeShootPos, camPosShoot.position, Functions.SmoothLerp(camLerpT));
+            cam.transform.rotation = Quaternion.Lerp(beforeShootRot, camPosShoot.rotation, Functions.SmoothLerp(camLerpT));
+            cam.orthographicSize = Mathf.Lerp(beforeShootSize, camSizeShoot, Functions.SmoothLerp(camLerpT));
+            return;
+        }else if (m_shootingState == shootingState.resetting){
+            camLerpT += Time.deltaTime / timeShootPos;
+            if (camLerpT >= 1) camLerpT = 1;
+
+            cam.transform.position = Vector3.Lerp(camPosShoot.position, beforeShootPos, Functions.SmoothLerp(camLerpT));
+            cam.transform.rotation = Quaternion.Lerp(camPosShoot.rotation, beforeShootRot, Functions.SmoothLerp(camLerpT));
+            cam.orthographicSize = Mathf.Lerp(camSizeShoot, beforeShootSize, Functions.SmoothLerp(camLerpT));
+            if (camLerpT >= 1){
+                cam.transform.rotation = beforeShootRot;
+                cam.transform.position = beforeShootPos;
+                cam.orthographicSize = beforeShootSize;
+                m_shootingState = shootingState.none;
+                targetPosition = cam.transform.position;
+            }
+            return;
+        }
         if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
@@ -73,7 +126,9 @@ public class CameraController : MonoBehaviour
 
     void Zoom(float increment)
     {
-        cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - increment, minZoom, maxZoom);
+        //cam.orthographicSize = Mathf.Clamp(cam.orthographicSize - increment, minZoom, maxZoom);
+        beforeShootSize = Mathf.Clamp(cam.orthographicSize - increment, minZoom, maxZoom);
+        cam.orthographicSize = beforeShootSize;
     }
 
     void OnGUI()
