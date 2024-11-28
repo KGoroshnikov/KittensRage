@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6107879234472577869}
   - component: {fileID: 7386300474811156084}
   - component: {fileID: 8332398676606110217}
+  - component: {fileID: 7107771898481352260}
   m_Layer: 7
   m_Name: brickWall
   m_TagString: Untagged
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
+  healthMax: 50
   health: 0
   onZeroHealth:
     m_PersistentCalls:
@@ -169,3 +170,17 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7107771898481352260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7564029731625509825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  safeVelocityLimit: 2.5
+  damageMultiplier: 2.5

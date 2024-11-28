@@ -697,14 +697,6 @@ PrefabInstance:
       value: Barrel (1)
       objectReference: {fileID: 0}
     - target: {fileID: 7209185280561049026, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
-      propertyPath: force
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209185280561049026, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
-      propertyPath: radiusFactor
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7209185280561049026, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
       propertyPath: 'affectedGroups.Array.data[0]'
       value: 
       objectReference: {fileID: 2037696535}
@@ -3134,14 +3126,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slingOrigin: {fileID: 501942637}
   maxStretch: 3
-  launchForceMultiplier: 10
+  launchForceMultiplier: {x: 0, y: 0, z: 0}
   maxAngle: 240
   minAngle: 105
   trajectoryLine: {fileID: 313330732}
   trajectoryPointsCount: 30
   isNonStandardGravityEnabled: 0
-  gravityStrength: 9.81
   zForce: 0
+  maxAngleStupid: 60
+  minAngleStupid: 0
   cameraController: {fileID: 0}
   minThresoldLaunch: 0
   queue: []

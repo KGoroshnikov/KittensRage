@@ -9,6 +9,8 @@ TagManager:
   - Doubles
   - Stupid
   - Sling
+  - KingRat
+  - Rat
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Enemy Props
   - 
   - Catopult
-  - 
+  - Cat
   - 
   - 
   - 

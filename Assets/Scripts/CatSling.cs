@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 public class CatSling : MonoBehaviour
 {
-    [SerializeField] private Animator animator;
+    /*[SerializeField] private Animator animator;
     [SerializeField] private Transform anchor;
     [SerializeField] private float simDt = 0.1f;
     [SerializeField] private int maxTrajectoryPoints = 100;
@@ -49,8 +49,7 @@ public class CatSling : MonoBehaviour
             cat.Send(this);
             LoadMatrices();
             animator.Play("Launch", -1, 0);
-        }*/
-
+        }/
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -118,7 +117,7 @@ public class CatSling : MonoBehaviour
             if (t > 100) return;
         } while (!Physics.Linecast(prev, pos, out hit));
         target = hit.point;
-    }*/
+    }/
     public void Recompute()
     {
         LoadMatrices();
@@ -177,5 +176,5 @@ public class CatSling : MonoBehaviour
         start + (velocity + gravity * (time * 0.5f)) * time;
     
     private Vector2 ComputeTrajectoryVelocity(Vector2 velocity, Vector2 gravity, float time) => 
-        velocity + gravity * time;
+        velocity + gravity * time;*/
 }
