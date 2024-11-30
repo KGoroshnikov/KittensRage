@@ -11,6 +11,7 @@ TagManager:
   - Sling
   - KingRat
   - Rat
+  - GigaCat
   layers:
   - Default
   - TransparentFX

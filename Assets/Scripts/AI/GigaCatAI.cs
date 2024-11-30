@@ -41,6 +41,13 @@ namespace AI
             FindNewTarget();
         }
 
+        public void StopMe(){
+            CancelInvoke();
+            agent.SetDestination(transform.position);
+            m_state = state.idle;
+            animator.SetTrigger("Idle");
+        }
+
         void Update(){
             hpOrigin.rotation = Quaternion.LookRotation(-cam.forward);
         }

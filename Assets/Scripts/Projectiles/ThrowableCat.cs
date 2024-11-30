@@ -5,9 +5,10 @@ public class ThrowableCat : MonoBehaviour
     [SerializeField] protected Rigidbody rb;
     [SerializeField] protected float hitDamange;
     [SerializeField] protected float timeDespawn = 5;
+    public GameManager.catTypes type;
     private bool gamaged;
 
-    public virtual void Launch(Vector3 vel){
+    public virtual void Launch(Vector3 vel, Vector3? finalPos = null){
         rb.AddForce(vel, ForceMode.Impulse);
     }
 

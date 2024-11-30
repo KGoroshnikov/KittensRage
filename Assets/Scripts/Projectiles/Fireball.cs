@@ -28,6 +28,7 @@ namespace Projectiles
             foreach (var coll in Physics.OverlapSphere(transform.position, Radius))
                 if (coll.gameObject != gameObject)
                 {
+                    if (coll.gameObject.CompareTag("GigaCat")) continue;
                     var dst = Vector3.Distance(coll.transform.position, transform.position);
 
                     if (coll.TryGetComponent(out Explosive explosive))

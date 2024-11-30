@@ -14,6 +14,9 @@ public class CameraController : MonoBehaviour
     private Vector3 targetPosition;
     private Camera cam;
 
+    [SerializeField] private Vector2 minBounds;
+    [SerializeField] private Vector2 maxBounds;
+
     [SerializeField] private Transform camPosShoot;
     [SerializeField] private float camSizeShoot;
     [SerializeField] private float timeShootPos;
@@ -81,8 +84,9 @@ public class CameraController : MonoBehaviour
                 cam.transform.rotation = beforeShootRot;
                 cam.transform.position = beforeShootPos;
                 cam.orthographicSize = beforeShootSize;
-                m_shootingState = shootingState.none;
                 targetPosition = cam.transform.position;
+                velocity = Vector3.zero;
+                m_shootingState = shootingState.none;
             }
             return;
         }
@@ -121,6 +125,8 @@ public class CameraController : MonoBehaviour
             Zoom(difference * zoomSpeed);
             targetPosition = cam.transform.position;
         }
+        targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, minBounds.x, maxBounds.x), targetPosition.y, Mathf.Clamp(targetPosition.z, minBounds.y, maxBounds.y));
+
         cam.transform.position = Vector3.SmoothDamp(cam.transform.position, targetPosition, ref velocity, smoothTime);
     }
 
