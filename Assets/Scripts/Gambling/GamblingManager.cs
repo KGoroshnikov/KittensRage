@@ -57,6 +57,7 @@ namespace Gambling
             // Если без окна с названием события то закоментировать 1 строку ниже
             resultCard.SetActive(false);
             gamblingEvents[_result].Execute(this);
+            wheel.gameObject.SetActive(false);
         }
 
 
