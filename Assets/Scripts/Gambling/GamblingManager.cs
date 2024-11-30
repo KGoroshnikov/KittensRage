@@ -54,6 +54,7 @@ namespace Gambling
         }
         public void RollExecute()
         {
+            // Если без окна с названием события то закоментировать 1 строку ниже
             resultCard.SetActive(false);
             gamblingEvents[_result].Execute(this);
         }
@@ -66,6 +67,8 @@ namespace Gambling
             {
                 cardText.text = gamblingEvents[_result].Name;
                 resultCard.SetActive(true);
+                // Если без окна с названием события то закоментировать 2 строки выше и раскоментировать 1 ниже
+                // RollExecute();
                 _isRolling = false;
                 return;
             }
