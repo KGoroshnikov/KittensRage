@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2789532058081814824}
-  force: 5000
+  force: 3500
   radiusFactor: 0.1
   radiusExplosionMul: 0.1
-  damageMin: 20
+  damageMin: 10
   chainReactionDelay: 0.3
   explodeByClick: 0
 --- !u!114 &8507471158261734680
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeVelocityLimit: 4
+  safeVelocityLimit: 3
   damageMultiplier: 1
 --- !u!1001 &7917089810144906439
 PrefabInstance:

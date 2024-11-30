@@ -366,6 +366,7 @@ MonoBehaviour:
   hitDamange: 25
   timeDespawn: 5
   type: 4
+  AmountOfAvaliableDamage: 2
   timeReach: 1.2
   forceAfter: 15
   damageOnTouch: 15

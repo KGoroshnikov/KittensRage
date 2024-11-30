@@ -301,10 +301,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 185411175434826325}
-  force: 2000
+  force: 1500
   radiusFactor: 0.06
   radiusExplosionMul: 0.3
-  damageMin: 20
+  damageMin: 15
   chainReactionDelay: 0.3
 --- !u!1001 &5331129357109073850
 PrefabInstance:
