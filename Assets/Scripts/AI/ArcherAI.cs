@@ -17,6 +17,7 @@ namespace AI
         [SerializeField, Range(0, 0.25f)] private float noiseFactor = 0.025f;
         
         [SerializeField] private AudioSource shootArrow;
+        
         private enum state{
             idle, attack
         }
