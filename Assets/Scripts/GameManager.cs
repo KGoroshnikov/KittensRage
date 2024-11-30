@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour
             CancelInvoke("CheckLevel");
             StopTimer();
             Invoke("Loose", 3);
-            gigaCatAI.StopMe();
             //Loose();
         }
     }

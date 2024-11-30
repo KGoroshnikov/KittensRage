@@ -12,14 +12,15 @@ public class MageThrowableCat : ThrowableCat
     private bool waitingToFireball;
     private Transform king;
 
-    void Start(){
+    public override void Start(){
+        base.Start();
         king = GameObject.FindWithTag("KingRat").transform;
     }
 
     public override void Launch(Vector3 vel, Vector3? finalPos = null)
     {
         base.Launch(vel);
-        maxHeight = 0;
+        maxHeight = -10;
         waitingToFireball = true;
     }
 

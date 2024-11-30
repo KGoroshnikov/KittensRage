@@ -6,7 +6,12 @@ public class ThrowableCat : MonoBehaviour
     [SerializeField] protected float hitDamange;
     [SerializeField] protected float timeDespawn = 5;
     public GameManager.catTypes type;
-    private bool gamaged;
+    [SerializeField] protected int AmountOfAvaliableDamage;
+    protected int maxAmountDmg;
+
+    public virtual void Start(){
+        maxAmountDmg = AmountOfAvaliableDamage;
+    }
 
     public virtual void Launch(Vector3 vel, Vector3? finalPos = null){
         rb.AddForce(vel, ForceMode.Impulse);
@@ -30,12 +35,13 @@ public class ThrowableCat : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision other)
     {
-        if (gamaged) return;
+        if (AmountOfAvaliableDamage == 0) return;
         if (other.gameObject.TryGetComponent<HealthManager>(out var manager))
         {
-            manager.ChangeHealth(-hitDamange);
-            gamaged = true;
-            Destroy(gameObject, timeDespawn);
+            manager.ChangeHealth(-hitDamange * (float)AmountOfAvaliableDamage / (float)maxAmountDmg);
+            AmountOfAvaliableDamage--;
+            if (AmountOfAvaliableDamage <= 0)
+                Destroy(gameObject, timeDespawn);
         }
     }
 }

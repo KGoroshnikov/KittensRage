@@ -236,6 +236,7 @@ MonoBehaviour:
   hitDamange: 35
   timeDespawn: 5
   type: 2
+  AmountOfAvaliableDamage: 2
   fireballPrefab: {fileID: 5456981602457468843, guid: fb67d98829f183944b589dd79ea91e5c, type: 3}
   fireballSpeed: 10
   fireballSpawnDistance: 3

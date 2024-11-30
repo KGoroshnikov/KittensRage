@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TwinsThrowableCat : ThrowableCat
@@ -7,6 +8,14 @@ public class TwinsThrowableCat : ThrowableCat
     [SerializeField] private Rigidbody[] childsRB;
     [SerializeField] private Vector3 offsetVel;
     [SerializeField] private Animator animator;
+    private Dictionary<GameObject, int> childDamageCount = new Dictionary<GameObject, int>();
+
+    public override void Start()
+    {
+        base.Start();
+        childDamageCount.Add(childsRB[0].gameObject, AmountOfAvaliableDamage);
+        childDamageCount.Add(childsRB[1].gameObject, AmountOfAvaliableDamage);
+    }
 
     public override void Launch(Vector3 vel, Vector3? finalPos = null)
     {
@@ -41,10 +50,16 @@ public class TwinsThrowableCat : ThrowableCat
     }
 
     public void TwinDidDamage(GameObject who, HealthManager hpDamaged){
-        hpDamaged.ChangeHealth(-hitDamange);
+        int aval = childDamageCount[who];
 
-        Destroy(who, timeDespawn);
-        twinsRemain--;
+        hpDamaged.ChangeHealth(-hitDamange * (float)aval / (float)maxAmountDmg);
+
+        childDamageCount[who] = childDamageCount[who] - 1;
+
+        if (childDamageCount[who] <= 0){
+            Destroy(who, timeDespawn);
+            twinsRemain--;
+        }
         if (twinsRemain <= 0) Destroy(gameObject, timeDespawn);
     }
 
