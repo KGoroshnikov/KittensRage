@@ -8,6 +8,8 @@ public class ThrowableCat : MonoBehaviour
     [SerializeField] protected float timeDespawn = 5;
     public GameManager.catTypes type;
     [SerializeField] protected int AmountOfAvaliableDamage;
+    [SerializeField] private AudioSource throwSound;
+    [SerializeField] private AudioSource hitSound;
     protected int maxAmountDmg;
 
     [SerializeField] protected VisualEffect vfxPuff;
@@ -20,6 +22,7 @@ public class ThrowableCat : MonoBehaviour
     public virtual void Launch(Vector3 vel, Vector3? finalPos = null){
         rb.AddForce(vel, ForceMode.Impulse);
         if (trailVFX != null)trailVFX.Play();
+        throwSound.Play();
     }
 
     public virtual void MakeMeKinematic(bool _state){
@@ -40,6 +43,7 @@ public class ThrowableCat : MonoBehaviour
 
     protected virtual void OnCollisionEnter(Collision other)
     {
+        hitSound.Play();
         if (trailVFX != null)trailVFX.Stop();
         if (AmountOfAvaliableDamage == 0) return;
         if (other.gameObject.TryGetComponent<HealthManager>(out var manager))
