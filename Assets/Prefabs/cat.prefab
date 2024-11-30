@@ -454,7 +454,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6216201233468474078}
   hitDamange: 25
-  destroyAfterDamage: 1
+  timeDespawn: 5
+  type: 1
 --- !u!54 &6216201233468474078
 Rigidbody:
   m_ObjectHideFlags: 0

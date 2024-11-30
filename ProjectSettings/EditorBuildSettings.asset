@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL1.unity
     guid: 7f9644f3099a3a24c9f4c49b9dc010a0
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL2.unity
+    guid: 2724dcf3b3c0a9a4d937f8aa1faca4cd
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

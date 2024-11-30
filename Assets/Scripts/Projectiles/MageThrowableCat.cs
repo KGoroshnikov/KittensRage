@@ -16,7 +16,7 @@ public class MageThrowableCat : ThrowableCat
         king = GameObject.FindWithTag("KingRat").transform;
     }
 
-    public override void Launch(Vector3 vel)
+    public override void Launch(Vector3 vel, Vector3? finalPos = null)
     {
         base.Launch(vel);
         maxHeight = 0;

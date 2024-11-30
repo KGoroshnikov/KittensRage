@@ -8,7 +8,7 @@ public class TwinsThrowableCat : ThrowableCat
     [SerializeField] private Vector3 offsetVel;
     [SerializeField] private Animator animator;
 
-    public override void Launch(Vector3 vel)
+    public override void Launch(Vector3 vel, Vector3? finalPos = null)
     {
         animator.enabled = false;
         if (childsRB[0] != null){
@@ -41,7 +41,6 @@ public class TwinsThrowableCat : ThrowableCat
     }
 
     public void TwinDidDamage(GameObject who, HealthManager hpDamaged){
-        Debug.Log("A");
         hpDamaged.ChangeHealth(-hitDamange);
 
         Destroy(who, timeDespawn);
