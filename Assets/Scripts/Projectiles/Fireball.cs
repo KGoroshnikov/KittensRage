@@ -48,7 +48,7 @@ namespace Projectiles
                         rb.AddExplosionForce(force, transform.position, Radius);
                 }
         
-            system.transform.localScale *= Radius * radiusExplosionMul;
+            //system.transform.localScale *= Radius * radiusExplosionMul;
             system.transform.parent = null;
             system.PlayExplosion();
             Destroy(gameObject);
