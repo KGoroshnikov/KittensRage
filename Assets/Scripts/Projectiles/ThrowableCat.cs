@@ -23,6 +23,10 @@ public class ThrowableCat : MonoBehaviour
         rb.linearVelocity = vel;
     }
 
+    public virtual Vector3 GetCustomGravity(){
+        return Physics.gravity;
+    }
+
     protected virtual void OnCollisionEnter(Collision other)
     {
         if (gamaged) return;

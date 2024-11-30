@@ -4424,16 +4424,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slingOrigin: {fileID: 2650672053219649818}
   maxStretch: 5
-  launchForceMultiplier: 4
+  launchForceMultiplier: {x: 5, y: 3.7, z: 1}
   maxAngle: 240
   minAngle: 105
   trajectoryLine: {fileID: 4613882526376959345}
   trajectoryPointsCount: 30
   isNonStandardGravityEnabled: 0
-  gravityStrength: 9.81
-  zForce: 0
+  zForce: 25
+  maxAngleStupid: 200
+  minAngleStupid: 105
   cameraController: {fileID: 4944940776495692408}
-  minThresoldLaunch: 2
+  minThresoldLaunch: 4
   queue: []
   speedJumpIn: 1
   heightJump: 2

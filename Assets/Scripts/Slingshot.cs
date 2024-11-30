@@ -9,7 +9,7 @@ public class Slingshot : MonoBehaviour
     //public GameObject projectilePrefab;
     public Transform slingOrigin;
     public float maxStretch = 3f;
-    public float launchForceMultiplier = 10f;
+    public Vector3 launchForceMultiplier;
     public float maxAngle = 60f;
     public float minAngle = 0f;
 
@@ -19,8 +19,10 @@ public class Slingshot : MonoBehaviour
 
     [Header("Stupid")]
     public bool isNonStandardGravityEnabled = false;
-    public float gravityStrength = 9.81f;
+    private Vector3 gravityStupid;
     public float zForce;
+    public float maxAngleStupid = 60f;
+    public float minAngleStupid = 0f;
     
     [Header("Other Settings")]
     private Camera cam;
@@ -143,6 +145,7 @@ public class Slingshot : MonoBehaviour
 
             loaded = true;
         }
+        gravityStupid = currentCat.GetCustomGravity();
 
         startPoint = GetMouseWorldPosition();
         if (!isNonStandardGravityEnabled)
@@ -160,7 +163,8 @@ public class Slingshot : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360;
-        angle = Mathf.Clamp(angle, minAngle, maxAngle);
+        if (!isNonStandardGravityEnabled)angle = Mathf.Clamp(angle, minAngle, maxAngle);
+        else angle = Mathf.Clamp(angle, minAngleStupid, maxAngleStupid);
 
         float clampedMagnitude = Mathf.Min(direction.magnitude, maxStretch);
 
@@ -181,7 +185,7 @@ public class Slingshot : MonoBehaviour
         cameraController.StopShoot();
         activedCam = false;
 
-        if (direction.magnitude <= minThresoldLaunch) return;
+        if (new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z).magnitude <= minThresoldLaunch) return;
 
         loaded = false;
         //rb.isKinematic = false;
@@ -189,7 +193,7 @@ public class Slingshot : MonoBehaviour
         //if (isNonStandardGravityEnabled) rb.useGravity = false;
         //rb.linearVelocity = Vector3.zero;
         currentCat.SetVelocity(Vector3.zero);
-        currentCat.Launch(direction * launchForceMultiplier);
+        currentCat.Launch(new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z));
         //rb.AddForce(direction * launchForceMultiplier, ForceMode.Impulse);
 
     }
@@ -197,7 +201,7 @@ public class Slingshot : MonoBehaviour
     private void DrawTrajectory(Vector3 launchDirection)
     {
         Vector3 startPosition = currentProjectile.transform.position;
-        Vector3 velocity = launchDirection * launchForceMultiplier / currentCat.GetMass();
+        Vector3 velocity = new Vector3(launchDirection.x * launchForceMultiplier.x, launchDirection.y * launchForceMultiplier.y, launchDirection.z * launchForceMultiplier.z) / currentCat.GetMass();
 
         trajectoryLine.positionCount = trajectoryPointsCount;
         for (int i = 0; i < trajectoryPointsCount; i++)
@@ -209,7 +213,7 @@ public class Slingshot : MonoBehaviour
 
             if (isNonStandardGravityEnabled)
             {
-                displacement = velocity * time + 0.5f * Vector3.back * gravityStrength * time * time;
+                displacement = velocity * time + 0.5f * gravityStupid * time * time;
             }
             else{
                 displacement = velocity * time + 0.5f * Physics.gravity * time * time;

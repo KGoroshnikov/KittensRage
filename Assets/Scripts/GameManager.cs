@@ -151,6 +151,7 @@ public class GameManager : MonoBehaviour
 
                         if (chosenCats.Count >= maxCatTypes){ // подготовка к игре
                             tCam = 0;
+                            camAnimator.enabled = false;
                             m_gameState = gameState.preparingGame;
 
                             for(int i = 0; i < allCatsToChoose.Length; i++) Destroy(allCatsToChoose[i].obj); // удаляем чтобы не мешали
@@ -192,14 +193,13 @@ public class GameManager : MonoBehaviour
             tCam += Time.deltaTime;
             if (tCam >= 1){ // старт игры
                 tCam = 1;
-                camAnimator.enabled = false;
                 m_gameState= gameState.playing;
                 UIBlackLines.enabled = true;
                 UIBlackLines.SetTrigger("Hide");
                 cameraController.ActiveCameraContol(true);
                 gigaCatAI.StartGame();
                 slingshot.ActivateMe(true);
-                
+
                 //Invoke("Win", 5);
             }
             cam.transform.position = Vector3.Lerp(choosingCamPos.position, startGameCamPos.position, Functions.SmoothLerp(tCam));

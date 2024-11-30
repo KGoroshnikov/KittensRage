@@ -8,6 +8,11 @@ public class StupidThrowableCat : ThrowableCat
         rb.useGravity = false;
     }
 
+    public override Vector3 GetCustomGravity()
+    {
+        return customGravity;
+    }
+
     void FixedUpdate(){
         rb.AddForce(customGravity, ForceMode.Acceleration);
     }
