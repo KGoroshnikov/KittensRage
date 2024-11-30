@@ -421,6 +421,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   hitDamange: 20
   timeDespawn: 5
+  type: 3
+  AmountOfAvaliableDamage: 2
   childsRB:
   - {fileID: 8699098278715946051}
   - {fileID: 5553260332757741652}

@@ -365,7 +365,11 @@ MonoBehaviour:
   rb: {fileID: 6393802859101432519}
   hitDamange: 25
   timeDespawn: 5
-  customGravity: {x: 0, y: 0, z: -9.81}
+  type: 4
+  AmountOfAvaliableDamage: 2
+  timeReach: 1.2
+  forceAfter: 15
+  damageOnTouch: 15
 --- !u!54 &6393802859101432519
 Rigidbody:
   m_ObjectHideFlags: 0

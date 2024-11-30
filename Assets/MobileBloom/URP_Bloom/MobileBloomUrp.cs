@@ -22,6 +22,8 @@
 
             [Range(0, 1)]
             public float BloomThreshold = 0.0f;
+
+            public bool m_enabled = true;
         }
 
         public MobileBloomSettings settings = new MobileBloomSettings();
@@ -35,7 +37,9 @@
 
         public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
         {
-            renderer.EnqueuePass(mobilePostProcessLwrpPass);
+            if (settings.m_enabled){
+                    renderer.EnqueuePass(mobilePostProcessLwrpPass);
+            }
         }
     }
 }

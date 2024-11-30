@@ -12,6 +12,7 @@ TagManager:
   - Explosive
   - KingRat
   - Rat
+  - GigaCat
   layers:
   - Default
   - TransparentFX

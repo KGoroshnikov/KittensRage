@@ -18,11 +18,14 @@ public class Slingshot : MonoBehaviour
     public int trajectoryPointsCount = 30;
 
     [Header("Stupid")]
-    public bool isNonStandardGravityEnabled = false;
-    private Vector3 gravityStupid;
-    public float zForce;
+    //public bool isNonStandardGravityEnabled = false;
+    //private Vector3 gravityStupid;
+    /*public float zForce;
     public float maxAngleStupid = 60f;
-    public float minAngleStupid = 0f;
+    public float minAngleStupid = 0f;*/
+    public bool isStupid;
+    public GameObject stupidTPPos;
+    public float stupidForceMul = 1;
     
     [Header("Other Settings")]
     private Camera cam;
@@ -135,6 +138,8 @@ public class Slingshot : MonoBehaviour
             currentCat = queue[queue.Count - 1];
             queue.RemoveAt(queue.Count - 1);
 
+            isStupid = currentCat.type == GameManager.catTypes.stupid;
+
             startPosCat = currentProjectile.transform.position;
             tjump = 0;
             animateJump = true;
@@ -145,10 +150,10 @@ public class Slingshot : MonoBehaviour
 
             loaded = true;
         }
-        gravityStupid = currentCat.GetCustomGravity();
+        //gravityStupid = currentCat.GetCustomGravity();
 
         startPoint = GetMouseWorldPosition();
-        if (!isNonStandardGravityEnabled)
+        //if (!isNonStandardGravityEnabled)
             startPoint.z = slingOrigin.position.z;
         isDragging = true;
     }
@@ -156,22 +161,23 @@ public class Slingshot : MonoBehaviour
     private void Dragging()
     {
         Vector3 currentPoint = GetMouseWorldPosition();
-        if (!isNonStandardGravityEnabled)
+        //if (!isNonStandardGravityEnabled)
             currentPoint.z = slingOrigin.position.z;
 
         direction = startPoint - currentPoint;
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         if (angle < 0) angle += 360;
-        if (!isNonStandardGravityEnabled)angle = Mathf.Clamp(angle, minAngle, maxAngle);
-        else angle = Mathf.Clamp(angle, minAngleStupid, maxAngleStupid);
+        //if (!isNonStandardGravityEnabled)
+            angle = Mathf.Clamp(angle, minAngle, maxAngle);
+        //else angle = Mathf.Clamp(angle, minAngleStupid, maxAngleStupid);
 
         float clampedMagnitude = Mathf.Min(direction.magnitude, maxStretch);
 
         direction = new Vector3(
                 clampedMagnitude * Mathf.Cos(angle * Mathf.Deg2Rad),
                 clampedMagnitude * Mathf.Sin(angle * Mathf.Deg2Rad),
-                zForce);
+                0); // zforce
 
         //currentProjectile.transform.position = slingOrigin.position - direction;
         DrawTrajectory(direction);
@@ -185,6 +191,8 @@ public class Slingshot : MonoBehaviour
         cameraController.StopShoot();
         activedCam = false;
 
+        stupidTPPos.SetActive(false);
+
         if (new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z).magnitude <= minThresoldLaunch) return;
 
         loaded = false;
@@ -193,7 +201,10 @@ public class Slingshot : MonoBehaviour
         //if (isNonStandardGravityEnabled) rb.useGravity = false;
         //rb.linearVelocity = Vector3.zero;
         currentCat.SetVelocity(Vector3.zero);
-        currentCat.Launch(new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z));
+        if (!isStupid)
+            currentCat.Launch(new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z));
+        else 
+            currentCat.Launch(new Vector3(direction.x * launchForceMultiplier.x, direction.y * launchForceMultiplier.y, direction.z * launchForceMultiplier.z), stupidTPPos.transform.position);
         //rb.AddForce(direction * launchForceMultiplier, ForceMode.Impulse);
 
     }
@@ -204,24 +215,35 @@ public class Slingshot : MonoBehaviour
         Vector3 velocity = new Vector3(launchDirection.x * launchForceMultiplier.x, launchDirection.y * launchForceMultiplier.y, launchDirection.z * launchForceMultiplier.z) / currentCat.GetMass();
 
         trajectoryLine.positionCount = trajectoryPointsCount;
+        Vector3 lastPos = Vector3.zero;
         for (int i = 0; i < trajectoryPointsCount; i++)
         {
             float time = i * 0.1f;
             Vector3 displacement = Vector3.zero;
-            if (!isNonStandardGravityEnabled) 
+            //if (!isNonStandardGravityEnabled) 
                 displacement.z = 0;
 
-            if (isNonStandardGravityEnabled)
-            {
-                displacement = velocity * time + 0.5f * gravityStupid * time * time;
-            }
-            else{
+            //if (isNonStandardGravityEnabled)
+            //{
+            //    displacement = velocity * time + 0.5f * gravityStupid * time * time;
+            //}
+            //else{
+            if (!isStupid)
                 displacement = velocity * time + 0.5f * Physics.gravity * time * time;
-            }
+            else displacement = velocity * time * stupidForceMul;
+            //}
 
             Vector3 drawPoint = startPosition + displacement;
-            if (!isNonStandardGravityEnabled) drawPoint.z = slingOrigin.position.z;
+            //if (!isNonStandardGravityEnabled) 
+                drawPoint.z = slingOrigin.position.z;
+            lastPos = drawPoint;
             trajectoryLine.SetPosition(i, drawPoint);
+        }
+        if (isStupid){
+            if (!stupidTPPos.activeSelf && lastPos.y > 0)
+                stupidTPPos.SetActive(true);
+            else if (lastPos.y <= 0) stupidTPPos.SetActive(false);
+            stupidTPPos.transform.position = lastPos;
         }
     }
 
@@ -230,7 +252,8 @@ public class Slingshot : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = Camera.main.WorldToScreenPoint(slingOrigin.position).z;
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (!isNonStandardGravityEnabled) worldPosition.z = slingOrigin.position.z;
+        //if (!isNonStandardGravityEnabled) 
+            worldPosition.z = slingOrigin.position.z;
         return worldPosition;
     }
 }

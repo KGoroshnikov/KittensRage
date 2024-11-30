@@ -138,7 +138,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!114 &7209185280561049026
 MonoBehaviour:
@@ -153,10 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   system: {fileID: 2789532058081814824}
-  force: 5000
+  force: 3500
   radiusFactor: 0.1
   radiusExplosionMul: 0.1
-  damageMin: 20
+  damageMin: 10
   chainReactionDelay: 0.3
   explodeByClick: 0
 --- !u!114 &8507471158261734680
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 30
-  health: 30
+  healthMax: 20
+  health: 20
   onZeroHealth:
     m_PersistentCalls:
       m_Calls:
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57419ecae4b943f79e9f2bd94fbb3c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  safeVelocityLimit: 4
+  safeVelocityLimit: 3
   damageMultiplier: 1
 --- !u!1001 &7917089810144906439
 PrefabInstance:

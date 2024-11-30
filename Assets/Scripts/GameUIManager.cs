@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,6 +18,10 @@ public class GameUIManager : MonoBehaviour
 
     [SerializeField] private string nextLvlName;
 
+    [SerializeField] private TMP_Text[] timeRequired;
+    [SerializeField] private TMP_Text[] objectsDestroyed;
+    [SerializeField] private TMP_Text lvlText;
+
     public void Win(int stars){
         cameraController.ActiveCameraContol(false);
         victoryAnim.gameObject.SetActive(true);
@@ -32,6 +37,19 @@ public class GameUIManager : MonoBehaviour
 
         for(int i= 0; i < defeatStars.Length; i++) defeatStars[i].sprite = starsSprite[0];
         for(int i= 0; i < stars; i++) if(i < defeatStars.Length) defeatStars[i].sprite = starsSprite[1];
+    }
+
+    public void DisplayStats(float timeSec, int objDestr){
+        int minutes = Mathf.FloorToInt(timeSec / 60);
+        int seconds = Mathf.FloorToInt(timeSec % 60);
+        for(int i = 0; i < timeRequired.Length; i++){
+            timeRequired[i].text = "TIME REQUIRED: <color=#BA60FF>" + minutes + ":" + seconds + "</color>";
+        }
+        for(int i = 0; i < objectsDestroyed.Length; i++){
+            objectsDestroyed[i].text = "OBJECTS DESTROYED: <color=#BA60FF>" + objDestr + "</color>";
+        }
+        string nameLvl = SceneManager.GetActiveScene().name;
+        lvlText.text = "LEVEL <COLOR=#FFBA00>" + nameLvl[nameLvl.Length - 1] + "</COLOR> COMPLETE!";
     }
 
     public void ExitToMenu(){

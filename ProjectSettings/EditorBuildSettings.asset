@@ -14,6 +14,39 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL1.unity
     guid: 7f9644f3099a3a24c9f4c49b9dc010a0
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL2.unity
+    guid: 2724dcf3b3c0a9a4d937f8aa1faca4cd
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL3.unity
+    guid: 94d432eae95b8f54d9034988e6bee053
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL4.unity
+    guid: 53d046a25af4f784badb882b67c80a18
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL5.unity
+    guid: 4d8c2d71b23e03342ac23626991298f3
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL6.unity
+    guid: 80ec665843ade5147a3074eb61d6089c
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL7.unity
+    guid: fbf7311971b397249ad9b65f5a4092f6
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL8.unity
+    guid: 046740657a522004f974305cd44e1506
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL9.unity
+    guid: d3b0aa1b7296c6b4bab0bae9f3a01b79
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL10.unity
+    guid: 45cd5847c0237a14c80e111d4f5a66d7
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL11.unity
+    guid: 44b0e8137f82cc347bf445e9cda4cf1a
+  - enabled: 1
+    path: Assets/Scenes/LEVELS/Reworked_kos/LEVEL12.unity
+    guid: ed4c03737d719b04db67b0a7f89beb0e
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -56,6 +56,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GigaCatAI gigaCatAI;
     [SerializeField] private float[] percentsDestructions;
 
+    [SerializeField] private ArcherAI[] allRats;
+
+    private float startTime;
+    private float endTime;
+
     void Start(){
         animatorFade.enabled = true;
         animatorFade.SetTrigger("InstantFade");
@@ -71,23 +76,37 @@ public class GameManager : MonoBehaviour
     void CheckLevel(){
         float destruction = 1.0f - (float)lvlObjects.transform.childCount / (float)startAmountOfObjects;
         if (starsManager.getStars() < 1 && destruction > percentsDestructions[0]) starsManager.AddToQueue();
-        else if (starsManager.getStars() < 2 && destruction > percentsDestructions[1]) starsManager.AddToQueue();
-        else if (starsManager.getStars() < 3 && destruction > percentsDestructions[2]) starsManager.AddToQueue();
+        if (starsManager.getStars() < 2 && destruction > percentsDestructions[1]) starsManager.AddToQueue();
+        if (starsManager.getStars() < 3 && destruction > percentsDestructions[2]) starsManager.AddToQueue();
 
         if (king == null){
             CancelInvoke("CheckLevel");
-            Win();
+            StopTimer();
+            Invoke("Win", 3);
+            gigaCatAI.StopMe();
+            //Win();
             return;
         }
         if (bigCat == null){
             CancelInvoke("CheckLevel");
-            Loose();
+            StopTimer();
+            Invoke("Loose", 3);
+            //Loose();
         }
     }
 
     void StartGame(){
         animatorFade.SetTrigger("FadeOut");
         InvokeRepeating("CountDown", 1, 1);
+    }
+
+    public void StartTimer()
+    {
+        startTime = Time.time;
+    }
+    public void StopTimer()
+    {
+        endTime = Time.time;
     }
 
     void CountDown(){
@@ -104,6 +123,7 @@ public class GameManager : MonoBehaviour
 
     void Win(){
         gameUIManager.Win(starsManager.getStars());
+        gameUIManager.DisplayStats(endTime- startTime, startAmountOfObjects - lvlObjects.transform.childCount);
     }
     void Loose(){
         gameUIManager.Loose(starsManager.getStars());
@@ -199,6 +219,11 @@ public class GameManager : MonoBehaviour
                 cameraController.ActiveCameraContol(true);
                 gigaCatAI.StartGame();
                 slingshot.ActivateMe(true);
+                StartTimer();
+
+                for(int i = 0; i < allRats.Length; i++){
+                    allRats[i].AllowAttack();
+                }
 
                 //Invoke("Win", 5);
             }

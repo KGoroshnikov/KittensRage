@@ -453,8 +453,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6216201233468474078}
-  hitDamange: 25
-  destroyAfterDamage: 1
+  hitDamange: 40
+  timeDespawn: 5
+  type: 1
+  AmountOfAvaliableDamage: 4
 --- !u!54 &6216201233468474078
 Rigidbody:
   m_ObjectHideFlags: 0

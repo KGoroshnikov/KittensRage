@@ -1050,11 +1050,11 @@ GameObject:
   m_Component:
   - component: {fileID: 801922968653036735}
   - component: {fileID: 8855160731290666502}
-  - component: {fileID: 7836772850113818220}
   - component: {fileID: 2688531888038625590}
   - component: {fileID: 3022398972602706951}
   - component: {fileID: 1458167754911418911}
   - component: {fileID: 7231289338675523242}
+  - component: {fileID: 1029895706021612842}
   m_Layer: 7
   m_Name: Rat
   m_TagString: Rat
@@ -1101,27 +1101,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!65 &7836772850113818220
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7763171777286375919}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 64
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.888659, z: 1.1347296}
-  m_Center: {x: -4.8668675e-10, y: 0.30023646, z: 0.014593154}
 --- !u!114 &2688531888038625590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,7 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 100
+  healthMax: 15
   health: 0
   onZeroHealth:
     m_PersistentCalls:
@@ -1193,7 +1172,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 88
   m_CollisionDetection: 0
 --- !u!114 &7231289338675523242
 MonoBehaviour:
@@ -1207,7 +1186,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec1524ed01fc49899121059bdd8a78da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   projectilePrefab: {fileID: 4722748453944741627, guid: f0bf810f3c4d3a748af3a9fd2d6b7ad7, type: 3}
   animator: {fileID: 8855160731290666502}
   arrowSource: {fileID: 2747317473712758683}
@@ -1215,6 +1193,27 @@ MonoBehaviour:
   arrowSpeed: 25
   radiusAttack: 12
   noiseFactor: 0.025
+--- !u!135 &1029895706021612842
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7763171777286375919}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.6
+  m_Center: {x: 0, y: 0.45, z: 0}
 --- !u!1 &8664067578189411923
 GameObject:
   m_ObjectHideFlags: 0

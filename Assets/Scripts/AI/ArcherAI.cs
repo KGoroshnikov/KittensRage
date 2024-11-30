@@ -6,7 +6,7 @@ namespace AI
 {
     public class ArcherAI : MonoBehaviour
     {
-        [SerializeField] private Transform target;
+        private Transform target;
         [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private Animator animator;
         [Space]
@@ -19,9 +19,16 @@ namespace AI
             idle, attack
         }
         private state m_state;
+        private bool allowedToAttack;
         private void Start()
         {
-            InvokeRepeating(nameof(Attack), attackTime, attackTime);
+            m_state = state.idle;
+            animator.Play("IdleGuard", -1, Random.value);
+            target = GameObject.FindWithTag("GigaCat").transform;
+        }
+
+        public void AllowAttack(){
+            allowedToAttack = true;
         }
 
         private void OnDrawGizmosSelected()
@@ -38,6 +45,8 @@ namespace AI
                 }
                 return;
             }
+            if (!allowedToAttack) return;
+
             if (m_state == state.attack) {
                 Vector3 dir = new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.y);
                 transform.forward = -dir;
@@ -52,7 +61,7 @@ namespace AI
 
         public void Attack()
         {
-            if (!target || Vector3.Distance(transform.position, target.position) > radiusAttack){
+            if (!target || Vector3.Distance(transform.position, target.position) > radiusAttack || !allowedToAttack){
                 CancelInvoke(nameof(Attack));
                 if (m_state != state.idle){
                     m_state = state.idle;
