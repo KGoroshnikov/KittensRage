@@ -77,7 +77,7 @@ namespace AI
             arrowSource.transform.forward = velocity.normalized;
             projectile.transform.forward = velocity.normalized;
             if (projectile.TryGetComponent(out Rigidbody rb))
-                rb.linearVelocity = velocity;
+                rb.AddForce(velocity, ForceMode.Impulse);
         }
 
         private Vector3 ComputeArrowVelocity()

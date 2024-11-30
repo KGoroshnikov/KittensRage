@@ -7,6 +7,10 @@ public class StarsManager : MonoBehaviour
     private int queueStars = 0;
     private bool cooldown = false;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip starSound;
+    
     public void AddToQueue()
     {
         if (getStars() >= 3) return;
@@ -29,7 +33,8 @@ public class StarsManager : MonoBehaviour
         if (currentStars == 1) animatorStars.Play("FirstStar", -1, 0);
         else if (currentStars == 2) animatorStars.Play("SecondStar", -1, 0);
         else if (currentStars == 3) animatorStars.Play("ThirdStar", -1, 0);
-
+        
+        source.PlayOneShot(starSound);
         Invoke(nameof(ResetCooldown), 1.2f);
     }
     private void ResetCooldown()
