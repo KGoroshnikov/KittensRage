@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c4d03b3b8334ac3baa238a155ae0376, type: 3}
+  m_Name: New Add Random Cat Event
+  m_EditorClassIdentifier: 
+  variants:
+  - {fileID: 6862711239403717034, guid: f0ce7edfb3559194cb500284a445adec, type: 3}
+  - {fileID: 7050374885043777456, guid: 7f1def8330d258a4895728230d5b926d, type: 3}
+  - {fileID: 7280252095469718517, guid: c5c9e54998d7d36428ca706bbcb4d535, type: 3}
+  - {fileID: 6508736914288714854, guid: 859df9421160a6f41865c0a4abb466f3, type: 3}
