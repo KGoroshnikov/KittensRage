@@ -6,10 +6,10 @@ using UnityEngine.Serialization;
 public class Explosive : MonoBehaviour
 {
     [SerializeField] private Explosion system;
-    [SerializeField] private float force = 500f;
-    [SerializeField] private float radiusFactor = 0.3f;
+    [SerializeField] public float force = 500f;
+    [SerializeField] public float radiusFactor = 0.3f;
     [SerializeField] private float radiusExplosionMul = 0.2f;
-    [SerializeField] private float damageMin = 1f;
+    [SerializeField] public float damageMin = 1f;
     [SerializeField] private float chainReactionDelay = 0.3f;
     
     [Space, SerializeField] private bool explodeByClick = true;

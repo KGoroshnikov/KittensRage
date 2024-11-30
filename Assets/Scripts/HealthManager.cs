@@ -21,5 +21,11 @@ public class HealthManager : MonoBehaviour
         else onHealthChanged.Invoke(health, healthMax);
     }
 
+    public void ChangeMaxHealth(float delta)
+    {
+        healthMax += delta;
+        health += delta;
+    }
+
     public void DestroyThis() => Destroy(gameObject);
 }
