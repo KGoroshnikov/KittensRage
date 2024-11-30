@@ -3,6 +3,7 @@ using AI;
 using Projectiles;
 using TMPro;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class catToChoose{
         public GameObject obj;
+        public VisualEffect vfx;
         public GameObject prefThrow;
         public catTypes catType;
     }
@@ -174,7 +176,11 @@ public class GameManager : MonoBehaviour
                             camAnimator.enabled = false;
                             m_gameState = gameState.preparingGame;
 
-                            for(int i = 0; i < allCatsToChoose.Length; i++) Destroy(allCatsToChoose[i].obj); // удаляем чтобы не мешали
+                            for(int i = 0; i < allCatsToChoose.Length; i++){
+                                allCatsToChoose[i].vfx.transform.SetParent(null);
+                                allCatsToChoose[i].vfx.Play();
+                                Destroy(allCatsToChoose[i].obj); // удаляем чтобы не мешали
+                            }
 
                             for(int i = 0; i < chosenCats.Count; i++){ // идем по порядку выбора
                                 for(int j = 0; j < allCatsToChoose.Length; j++){ // находим нужного кота и его префаб

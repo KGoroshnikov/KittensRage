@@ -11,7 +11,6 @@ public class StupidThrowableCat : ThrowableCat
     private float tlerp;
     private Vector3 startPos;
     private Vector3 endPos;
-    private bool mainDamaged;
 
     public override void Launch(Vector3 vel, Vector3? finalpos = null)
     {
@@ -21,6 +20,7 @@ public class StupidThrowableCat : ThrowableCat
         rb.isKinematic = true;
         dir = vel.normalized;
         active = true;
+        if (trailVFX != null)trailVFX.Play();
     }
 
     void Update(){
@@ -36,17 +36,22 @@ public class StupidThrowableCat : ThrowableCat
 
     protected override void OnCollisionEnter(Collision other)
     {
+        if (trailVFX != null)trailVFX.Stop();
+        if (AmountOfAvaliableDamage == 0) return;
+        
         if (other.gameObject.TryGetComponent<HealthManager>(out var manager))
         {
             if (active){
                 manager.ChangeHealth(-damageOnTouch);
             }
-            else if (!mainDamaged){
-                mainDamaged = true;
-                manager.ChangeHealth(-hitDamange);
-                Destroy(gameObject, timeDespawn);
+            else{
+                manager.ChangeHealth(-hitDamange * (float)AmountOfAvaliableDamage / (float)maxAmountDmg);
+                AmountOfAvaliableDamage--;
+                if (AmountOfAvaliableDamage <= 0)
+                    Invoke("PlayVFX", timeDespawn);
             }
         }
+
     }
 
     void Awake(){

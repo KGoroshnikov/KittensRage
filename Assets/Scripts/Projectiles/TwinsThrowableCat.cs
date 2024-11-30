@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class TwinsThrowableCat : ThrowableCat
 {
     private int twinsRemain = 2;
     [SerializeField] private Rigidbody[] childsRB;
+    [SerializeField] private VisualEffect[] puffVFX;
+    [SerializeField] private VisualEffect[] trailsVFX;
     [SerializeField] private Vector3 offsetVel;
     [SerializeField] private Animator animator;
     private Dictionary<GameObject, int> childDamageCount = new Dictionary<GameObject, int>();
@@ -28,6 +31,7 @@ public class TwinsThrowableCat : ThrowableCat
             childsRB[1].transform.SetParent(null);
             childsRB[1].AddForce(vel + offsetVel, ForceMode.Impulse);
         }
+        for(int i = 0; i < trailsVFX.Length; i++) trailsVFX[i].Play();
     }
 
     public override void MakeMeKinematic(bool _state)
@@ -55,9 +59,12 @@ public class TwinsThrowableCat : ThrowableCat
         hpDamaged.ChangeHealth(-hitDamange * (float)aval / (float)maxAmountDmg);
 
         childDamageCount[who] = childDamageCount[who] - 1;
-
+        int idx = (childsRB[0] != null && who == childsRB[0].gameObject) ? 0 : 1;
+        trailsVFX[idx].Stop();
         if (childDamageCount[who] <= 0){
-            Destroy(who, timeDespawn);
+            puffVFX[idx].transform.SetParent(null);
+            puffVFX[idx].Play();
+            Destroy(who);
             twinsRemain--;
         }
         if (twinsRemain <= 0) Destroy(gameObject, timeDespawn);
