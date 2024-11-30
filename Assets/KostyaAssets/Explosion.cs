@@ -11,6 +11,8 @@ public class Explosion : MonoBehaviour
     [SerializeField] private float lightTime = 0.5f;
     private float t;
     private float maxLight = 1000;
+    
+    [SerializeField] private AudioSource source;
 
     void Start(){
         //Invoke("PlayExplosion", 2);
@@ -29,6 +31,7 @@ public class Explosion : MonoBehaviour
         t = 0;
         if (destroyAfter) Destroy(gameObject, timeDestroy);
         vfx.Play();
+        source.Play();
         animLight = true;
     }
 }

@@ -33,6 +33,11 @@ public class Slingshot : MonoBehaviour
 
     [SerializeField] private float minThresoldLaunch;
     
+    [Header("Audio")]
+    [SerializeField] private AudioSource source;
+
+    [SerializeField] private AudioClip drag;
+    [SerializeField] private AudioClip shoot;
 
     private GameObject currentProjectile;
     private ThrowableCat currentCat;
@@ -117,7 +122,9 @@ public class Slingshot : MonoBehaviour
 
         if (touch.phase == TouchPhase.Began)
         {
+            source.PlayOneShot(drag);
             StartDragging();
+            
         }
         else if (touch.phase == TouchPhase.Moved && isDragging)
         {
@@ -125,6 +132,7 @@ public class Slingshot : MonoBehaviour
         }
         else if (touch.phase == TouchPhase.Ended && isDragging)
         {
+            source.PlayOneShot(shoot);
             ReleaseProjectile();
         }
     }

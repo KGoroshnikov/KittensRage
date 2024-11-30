@@ -21,11 +21,18 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private TMP_Text[] timeRequired;
     [SerializeField] private TMP_Text[] objectsDestroyed;
     [SerializeField] private TMP_Text lvlText;
+    
+    [Header("Audio")]
+    [SerializeField] private AudioSource source;
+    [SerializeField] private AudioClip victorySound;
+    
 
     public void Win(int stars){
         cameraController.ActiveCameraContol(false);
         victoryAnim.gameObject.SetActive(true);
         victoryAnim.Play("VictoryAppear", -1, 0);
+        source.Stop();
+        source.PlayOneShot(victorySound);
 
         for(int i= 0; i < winStars.Length; i++) winStars[i].sprite = starsSprite[0];
         for(int i= 0; i < stars; i++) if(i < winStars.Length) winStars[i].sprite = starsSprite[1];

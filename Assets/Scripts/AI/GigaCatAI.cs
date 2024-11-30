@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Serialization;
 
 namespace AI
 {
@@ -23,6 +21,10 @@ namespace AI
         [SerializeField] private Transform hpOrigin;
         [SerializeField] private Transform hpPivot;
         private Transform cam;
+        
+        [Header("Audio")]
+        [SerializeField] private AudioSource source;
+        [SerializeField] private AudioClip[] hitSounds;
 
         private enum state{
             idle, walk, attack 
@@ -108,6 +110,7 @@ namespace AI
                 animator.SetTrigger("Attack");
             }
             // Attacking
+            source.PlayOneShot(hitSounds[Random.Range(0, hitSounds.Length)]);
             target.ChangeHealth(-damage);
         }
 
