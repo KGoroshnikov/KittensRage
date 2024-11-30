@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6167299757418897676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7199343354162685613}
+  - component: {fileID: 1338218382077038726}
+  m_Layer: 0
+  m_Name: FortuneWheel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7199343354162685613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6167299757418897676}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338218382077038726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6167299757418897676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ff159ed19a4221b1c1598c395f2bee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slingshot: {fileID: 0}
+  gigaCatHealth: {fileID: 0}
+  gamblingEvents:
+  - {fileID: 11400000, guid: 784c20abd6489294aa713a96752425ef, type: 2}
+  - {fileID: 11400000, guid: 8593607c57ea37d42912c7d7dcb29695, type: 2}
+  - {fileID: 11400000, guid: 7ebd8f861c621f341b9853a0d5301ad5, type: 2}
+  - {fileID: 11400000, guid: 6bc837f19e5cea04cbf273108dda8a27, type: 2}
+  - {fileID: 11400000, guid: 930714d95504c1f4bbf9116435471693, type: 2}
+  - {fileID: 11400000, guid: 5be9e3f4bda136f43bd91e5954298b0a, type: 2}
+  - {fileID: 11400000, guid: 6ce62a1f7c64c804bb48b1d134126de9, type: 2}
+  - {fileID: 11400000, guid: 592f266653d249d479b6c82448b5b7ca, type: 2}
