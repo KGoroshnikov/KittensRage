@@ -15,6 +15,8 @@ namespace AI
         [SerializeField] private float arrowSpeed = 10;
         [SerializeField] private float radiusAttack;
         [SerializeField, Range(0, 0.25f)] private float noiseFactor = 0.025f;
+        
+        [SerializeField] private AudioSource shootArrow;
         private enum state{
             idle, attack
         }
@@ -78,6 +80,8 @@ namespace AI
             projectile.transform.forward = velocity.normalized;
             if (projectile.TryGetComponent(out Rigidbody rb))
                 rb.AddForce(velocity, ForceMode.Impulse);
+            
+            shootArrow.Play();
         }
 
         private Vector3 ComputeArrowVelocity()
