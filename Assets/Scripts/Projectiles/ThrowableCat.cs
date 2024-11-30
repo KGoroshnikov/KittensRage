@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.VFX;
 
 public class ThrowableCat : MonoBehaviour
 {
@@ -11,12 +12,16 @@ public class ThrowableCat : MonoBehaviour
     [SerializeField] private AudioSource hitSound;
     protected int maxAmountDmg;
 
+    [SerializeField] protected VisualEffect vfxPuff;
+    [SerializeField] protected VisualEffect trailVFX;
+
     public virtual void Start(){
         maxAmountDmg = AmountOfAvaliableDamage;
     }
 
     public virtual void Launch(Vector3 vel, Vector3? finalPos = null){
         rb.AddForce(vel, ForceMode.Impulse);
+        if (trailVFX != null)trailVFX.Play();
         throwSound.Play();
     }
 
@@ -39,13 +44,23 @@ public class ThrowableCat : MonoBehaviour
     protected virtual void OnCollisionEnter(Collision other)
     {
         hitSound.Play();
+        if (trailVFX != null)trailVFX.Stop();
         if (AmountOfAvaliableDamage == 0) return;
         if (other.gameObject.TryGetComponent<HealthManager>(out var manager))
         {
             manager.ChangeHealth(-hitDamange * (float)AmountOfAvaliableDamage / (float)maxAmountDmg);
             AmountOfAvaliableDamage--;
             if (AmountOfAvaliableDamage <= 0)
-                Destroy(gameObject, timeDespawn);
+                Invoke("PlayVFX", timeDespawn);
+                //Destroy(gameObject, timeDespawn);
         }
+    }
+
+    protected void PlayVFX(){
+        if (vfxPuff != null){
+            vfxPuff.transform.SetParent(null);
+            vfxPuff.Play();
+        }
+        Destroy(gameObject);
     }
 }

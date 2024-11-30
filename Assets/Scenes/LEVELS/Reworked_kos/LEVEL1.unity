@@ -183,9 +183,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -253,9 +273,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -338,9 +378,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -702,7 +762,7 @@ PrefabInstance:
       objectReference: {fileID: 2037696535}
     - target: {fileID: 7908704608011036203, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17.14
+      value: 16.87
       objectReference: {fileID: 0}
     - target: {fileID: 7908704608011036203, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -809,10 +869,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -1062,9 +1142,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -1132,9 +1232,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -1383,10 +1503,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -2050,10 +2190,6 @@ PrefabInstance:
       propertyPath: lvlObjects
       value: 
       objectReference: {fileID: 2037696534}
-    - target: {fileID: 3567087017227532231, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
-      propertyPath: allRats.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3567087017227532231, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
       propertyPath: 'allRats.Array.data[0]'
       value: 
@@ -3486,10 +3622,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -3596,9 +3752,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -4440,9 +4616,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -4621,7 +4817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286545299331395808, guid: 6be465fde22b4834398f80e2d95a3070, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.43
+      value: 18.19
       objectReference: {fileID: 0}
     - target: {fileID: 2286545299331395808, guid: 6be465fde22b4834398f80e2d95a3070, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5012,10 +5208,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -5559,9 +5775,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -6054,7 +6290,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2286545299331395808, guid: 6be465fde22b4834398f80e2d95a3070, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.07
+      value: 15.43
       objectReference: {fileID: 0}
     - target: {fileID: 2286545299331395808, guid: 6be465fde22b4834398f80e2d95a3070, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6327,10 +6563,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -6757,9 +7013,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -6832,9 +7108,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -6975,9 +7271,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -7136,9 +7452,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -7362,9 +7698,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -7432,9 +7788,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -8070,9 +8446,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -8150,10 +8546,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -8340,9 +8756,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180.96
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -8535,7 +8971,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1930833544}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 6ada8d21c596afc47b9e9f333132309e, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 82bd216a7d4ca1647b79f3595fde002c, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -8716,9 +9152,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -9075,10 +9531,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6107879234472577869, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7564029731625509825, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
@@ -9180,9 +9656,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: breakVFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onZeroHealth.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+      propertyPath: onHealthChangedMini.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7386300474811156084, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
-    m_RemovedGameObjects: []
+    - {fileID: 8332398676606110217, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 7107771898481352260, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3080104599980408636, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
+    - {fileID: 3244284434690646070, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646de26589a24094bb3c7f25e7558b73, type: 3}
