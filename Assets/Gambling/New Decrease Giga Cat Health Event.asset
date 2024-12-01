@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbae2505340349908c541f35e33e939c, type: 3}
   m_Name: New Decrease Giga Cat Health Event
   m_EditorClassIdentifier: 
-  factor: 1.3
+  factor: 0.5

@@ -18,5 +18,12 @@ namespace Gambling.Negative
                 if (o.TryGetComponent<Explosive>(out var exp))
                     exp.force /= factor;
         }
+        public override void Execute(WheelOfFortune manager)
+        {
+            GameObject.FindGameObjectsWithTag("Explosive", _objects);
+            foreach (var o in _objects)
+                if (o.TryGetComponent<Explosive>(out var exp))
+                    exp.force /= factor;
+        }
     }
 }

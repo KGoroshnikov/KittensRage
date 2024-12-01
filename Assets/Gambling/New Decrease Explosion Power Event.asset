@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0bec0447164401bb94b36972396e06, type: 3}
   m_Name: New Decrease Explosion Power Event
   m_EditorClassIdentifier: 
-  factor: 1.3
+  factor: 2

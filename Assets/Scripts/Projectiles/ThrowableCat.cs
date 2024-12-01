@@ -56,7 +56,7 @@ public class ThrowableCat : MonoBehaviour
         }
     }
 
-    protected void PlayVFX(){
+    public void PlayVFX(){
         if (vfxPuff != null){
             vfxPuff.transform.SetParent(null);
             vfxPuff.Play();

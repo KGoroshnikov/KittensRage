@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using Projectiles;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class Slingshot : MonoBehaviour
 {
@@ -47,6 +49,7 @@ public class Slingshot : MonoBehaviour
     private Vector3 direction;
 
     public List<ThrowableCat> queue;
+    private Vector3 lastPosQueue;
     public float speedJumpIn;
     public float heightJump;
     private float tjump;
@@ -78,8 +81,24 @@ public class Slingshot : MonoBehaviour
         }
     }
 
+    public void RemoveCat(){
+        if (queue.Count <= 0) return;
+        int pos = Random.Range(0, queue.Count);
+        queue[pos].PlayVFX();
+        queue.RemoveAt(pos);
+    }
+
+    public void AddRandomCat(GameObject newcatpref, VisualEffect puff){
+        Vector3 pos = lastPosQueue + new Vector3(-2, 0, 0);
+        GameObject cat = Instantiate(newcatpref, pos, Quaternion.identity);
+        Instantiate(puff, pos, Quaternion.identity).GetComponent<VisualEffect>().Play();
+        queue.Insert(0, cat.GetComponent<ThrowableCat>());
+        lastPosQueue = cat.transform.position;
+    }
+
     public void GetCats(List<ThrowableCat> throwableCats){
         queue.AddRange(throwableCats);
+        lastPosQueue = queue[0].transform.position;
     }
 
     public void ActivateMe(bool _active){

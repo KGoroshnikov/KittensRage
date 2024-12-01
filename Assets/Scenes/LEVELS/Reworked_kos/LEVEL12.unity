@@ -8940,6 +8940,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  canttakedamage: 0
 --- !u!65 &1356006276
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11131,6 +11132,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: LvlEssentials
       objectReference: {fileID: 0}
+    - target: {fileID: 3125307740165079598, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 98.38
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125307740165079598, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 3125307740165079598, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.617
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537327445501792293, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 110.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537327445501792293, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.76
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537327445501792293, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.52
+      objectReference: {fileID: 0}
     - target: {fileID: 3567087017227532231, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
       propertyPath: king
       value: 
@@ -11194,6 +11219,30 @@ PrefabInstance:
     - target: {fileID: 3940789120263986390, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
       propertyPath: nextLvlName
       value: MENU
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082341448386870530, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 111.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082341448386870530, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 23.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6082341448386870530, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056291878917840354, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 96.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056291878917840354, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 8056291878917840354, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 176.617
       objectReference: {fileID: 0}
     - target: {fileID: 8497404810365736311, guid: f87f242c46112744abcaecf4fe68f34f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12614,6 +12663,7 @@ MonoBehaviour:
   onHealthChangedMini:
     m_PersistentCalls:
       m_Calls: []
+  canttakedamage: 0
 --- !u!1 &6576395151795934020
 GameObject:
   m_ObjectHideFlags: 0

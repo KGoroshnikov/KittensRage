@@ -321,6 +321,7 @@ MonoBehaviour:
   damage: 10
   attackTime: 1
   brainUpdateTime: 0.1
+  mhp: {fileID: 1161969140145281083}
   animator: {fileID: 173356163491720176}
   hpOrigin: {fileID: 8583113198177508619}
   hpPivot: {fileID: 7166389357800665782}
@@ -410,6 +411,7 @@ MonoBehaviour:
   onHealthChangedMini:
     m_PersistentCalls:
       m_Calls: []
+  canttakedamage: 0
 --- !u!65 &3539847012091035049
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using AI;
 using Projectiles;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -63,6 +64,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource mainMusic;
     [SerializeField] private MusicManager musicManager;
 
+    [SerializeField] private WheelOfFortune wheelOfFortune;
+    [SerializeField] private GameObject MainWheel;
+    [SerializeField] private Animator animatorIconWheel;
+
     private float startTime;
     private float endTime;
 
@@ -79,16 +84,56 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CheckLevel", 0.5f, 0.5f);
         musicManager.FadeMusic(mainMusic, false, 3, 0.8f);
     }
+
+    void AppearWheel(){
+        animatorIconWheel.gameObject.SetActive(true);
+        animatorIconWheel.enabled = true;
+        animatorIconWheel.Play("AppearWheelIcon", -1, 0);
+    }
+
+    public HealthManager getGigaHealth(){
+        return gigaCatAI.getMHP();
+    }
+
+    public Transform getMainParent(){
+        return lvlObjects.transform;
+    }
+
+    public void GetBackFromWheel(){
+        gigaCatAI.CancelWheelBreak();
+        animatorIconWheel.gameObject.SetActive(false);
+    }
+
+    public void CloseWheel(){
+        MainWheel.SetActive(false);
+    }
+    
+    public void ActivateWheel(){
+        MainWheel.SetActive(true);
+        gigaCatAI.WheelStop();
+        wheelOfFortune.ActivateMe();
+    }
+
     void CheckLevel(){
         float destruction = 1.0f - (float)lvlObjects.transform.childCount / (float)startAmountOfObjects;
-        if (starsManager.getStars() < 1 && destruction > percentsDestructions[0]) starsManager.AddToQueue();
-        if (starsManager.getStars() < 2 && destruction > percentsDestructions[1]) starsManager.AddToQueue();
-        if (starsManager.getStars() < 3 && destruction > percentsDestructions[2]) starsManager.AddToQueue();
+        if (starsManager.getStars() < 1 && destruction > percentsDestructions[0]){
+            starsManager.AddToQueue();
+            AppearWheel();
+        }
+        if (starsManager.getStars() < 2 && destruction > percentsDestructions[1]){
+            starsManager.AddToQueue();
+            AppearWheel();
+        }
+        if (starsManager.getStars() < 3 && destruction > percentsDestructions[2]){
+            starsManager.AddToQueue();
+            AppearWheel();
+        }
 
         if (king == null){
             CancelInvoke("CheckLevel");
             StopTimer();
             Invoke("Win", 3);
+            MainWheel.SetActive(false);
             gigaCatAI.StopMe();
             for(int i = 0; i < allRats.Length; i++){
                 if (allRats[i] != null) allRats[i].AllowAttack(true);
@@ -100,6 +145,7 @@ public class GameManager : MonoBehaviour
             CancelInvoke("CheckLevel");
             StopTimer();
             Invoke("Loose", 3);
+            MainWheel.SetActive(false);
             for(int i = 0; i < allRats.Length; i++){
                 if (allRats[i] != null) allRats[i].AllowAttack(true);
             }
@@ -143,6 +189,7 @@ public class GameManager : MonoBehaviour
     }
     void Loose(){
         gameUIManager.Loose(starsManager.getStars());
+        gameUIManager.DisplayStats(endTime- startTime, startAmountOfObjects - lvlObjects.transform.childCount);
     }
 
     void Update(){

@@ -16,6 +16,8 @@ namespace AI
         [SerializeField] private float brainUpdateTime = 0.1f;
         private HealthManager target;
 
+        [SerializeField] private HealthManager mhp;
+
         [SerializeField] private Animator animator;
 
         [SerializeField] private Transform hpOrigin;
@@ -35,6 +37,25 @@ namespace AI
             cam = Camera.main.transform;
             //FindNewTarget();
             animator.SetTrigger("Idle");
+        }
+
+        public HealthManager getMHP(){
+            return mhp;
+        } 
+
+        public void WheelStop(){
+            mhp.canttakedamage = true;
+            CancelInvoke();
+            agent.SetDestination(transform.position);
+            m_state = state.idle;
+            animator.SetTrigger("Idle");
+        }
+
+        public void CancelWheelBreak(){
+            mhp.canttakedamage = false;
+            m_state = state.walk;
+            animator.SetTrigger("Walk");
+            FindNewTarget();
         }
 
         public void StartGame(){

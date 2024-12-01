@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: New Add Random Cat Event
   m_EditorClassIdentifier: 
   variants:
-  - {fileID: 6862711239403717034, guid: f0ce7edfb3559194cb500284a445adec, type: 3}
-  - {fileID: 7050374885043777456, guid: 7f1def8330d258a4895728230d5b926d, type: 3}
-  - {fileID: 7280252095469718517, guid: c5c9e54998d7d36428ca706bbcb4d535, type: 3}
-  - {fileID: 6508736914288714854, guid: 859df9421160a6f41865c0a4abb466f3, type: 3}
+  - {fileID: 7928830132501301364, guid: f0ce7edfb3559194cb500284a445adec, type: 3}
+  - {fileID: 2966821910377573057, guid: 7f1def8330d258a4895728230d5b926d, type: 3}
+  - {fileID: 2216249032526472248, guid: c5c9e54998d7d36428ca706bbcb4d535, type: 3}
+  - {fileID: 3381475472757246914, guid: 859df9421160a6f41865c0a4abb466f3, type: 3}

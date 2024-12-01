@@ -11,5 +11,11 @@ namespace Gambling.Negative
             var queue = manager.slingshot.queue;
             queue.RemoveAt(Random.Range(0, queue.Count));
         }
+        public override void Execute(WheelOfFortune manager)
+        {
+            /*var queue = manager.slingshot.queue;
+            queue.RemoveAt(Random.Range(0, queue.Count));*/
+            manager.slingshot.RemoveCat();
+        }
     }
 }

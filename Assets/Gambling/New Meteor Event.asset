@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f16aabe2564010b6ca43a0853eb63d, type: 3}
   m_Name: New Meteor Event
   m_EditorClassIdentifier: 
+  meteorCount: 4
+  meteorSpeed: 30

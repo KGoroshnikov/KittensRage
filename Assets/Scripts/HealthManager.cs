@@ -12,11 +12,15 @@ public class HealthManager : MonoBehaviour
 
     public float HealthMax => healthMax;
     public float Health => health;
+
+    public bool canttakedamage;
     
     private void Awake() => health = healthMax;
     
     public void ChangeHealth(float delta)
     {
+        if (canttakedamage) return;
+        
         health += delta;
         if (health > healthMax) health = healthMax;
         if (health < 0){
@@ -31,8 +35,17 @@ public class HealthManager : MonoBehaviour
 
     public void ChangeMaxHealth(float delta)
     {
-        healthMax += delta;
-        health += delta;
+        //healthMax += delta;
+        health = delta;
+        if (health > healthMax) health = healthMax;
+        if (health < 0){
+            if (breakVFX != null) breakVFX.SetParent(null);
+            onZeroHealth.Invoke();
+        }
+        else{
+            onHealthChanged.Invoke(health, healthMax);
+            onHealthChangedMini.Invoke();
+        }
     }
 
     public void DestroyThis() => Destroy(gameObject);

@@ -13,5 +13,10 @@ namespace Gambling.Positive
             var delta = manager.gigaCatHealth.HealthMax * (factor - 1);
             manager.gigaCatHealth.ChangeMaxHealth(delta);
         }
+        public override void Execute(WheelOfFortune manager)
+        {
+            var delta = manager.gigaCatHealth.Health * factor;
+            manager.gigaCatHealth.ChangeMaxHealth(delta);
+        }
     }
 }

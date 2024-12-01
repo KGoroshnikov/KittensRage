@@ -3726,7 +3726,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614801}
   m_ExposedName: Size
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -3807,7 +3807,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614803}
   m_ExposedName: Color
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -5161,7 +5161,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614847}
   m_ExposedName: TimeSpeed
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: 
   m_Min:
     m_Type:
@@ -5242,7 +5242,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614849}
   m_ExposedName: LifetimeParticle
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: 
   m_Min:
     m_Type:
