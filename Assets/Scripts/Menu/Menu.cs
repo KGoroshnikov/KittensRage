@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,6 +25,8 @@ public class Menu : MonoBehaviour
     [SerializeField] private AudioClip[] uiSounds;
     [SerializeField] private MusicManager musicManager;
     [SerializeField] private AudioSource musicSource;
+
+    [SerializeField] private AudioMixer audioMixer;
     
 
     void Start(){
@@ -38,10 +41,14 @@ public class Menu : MonoBehaviour
         bloomIsON = PlayerPrefs.GetInt("BloomSettings", 1) == 1;
 
         if (!soundIsON){
+            audioMixer.SetFloat("VolumeMain", Mathf.Log10(0.001f)*20);
             soundnosound[0].SetActive(false);
             soundnosound[1].SetActive(true);
         }
-        if (!musicIsON) imgMusic.SetActive(true);
+        if (!musicIsON){
+            audioMixer.SetFloat("VolumeMusic", Mathf.Log10(0.001f)*20);
+            imgMusic.SetActive(true);
+        }
         if (!bloomIsON){
             QualitySettings.SetQualityLevel(1);
             imgBloom.SetActive(true);
@@ -98,10 +105,12 @@ public class Menu : MonoBehaviour
         PlayerPrefs.SetInt("SoundSettings", soundIsON ? 1 : 0);
 
         if (!soundIsON){
+            audioMixer.SetFloat("VolumeMain", Mathf.Log10(0.001f)*20);
             soundnosound[0].SetActive(false);
             soundnosound[1].SetActive(true);
         }
         else{
+            audioMixer.SetFloat("VolumeMain", Mathf.Log10(1f)*20);
             soundnosound[0].SetActive(true);
             soundnosound[1].SetActive(false);
         }
@@ -112,8 +121,14 @@ public class Menu : MonoBehaviour
 
         PlayerPrefs.SetInt("MusicSettings", musicIsON ? 1 : 0);
 
-        if (!musicIsON) imgMusic.SetActive(true);
-        else imgMusic.SetActive(false);
+        if (!musicIsON){
+            audioMixer.SetFloat("VolumeMusic", Mathf.Log10(0.001f)*20);
+            imgMusic.SetActive(true);
+        }
+        else{
+            audioMixer.SetFloat("VolumeMusic", Mathf.Log10(1f)*20);
+            imgMusic.SetActive(false);
+        }
     }
 
     public void PlayButton(){

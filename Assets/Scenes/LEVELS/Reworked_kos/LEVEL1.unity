@@ -4691,6 +4691,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2037696535}
     m_Modifications:
+    - target: {fileID: 743862507419769049, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 749244406956614033, guid: f6904280bd9c7a44483a9401861f0fd2, type: 3}
       propertyPath: m_Name
       value: Barrel
