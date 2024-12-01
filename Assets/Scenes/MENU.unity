@@ -1189,6 +1189,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d8ef714b2989a7b4e99d908af87f5b96, type: 3}
   musicManager: {fileID: 1078827185}
   musicSource: {fileID: 1139775127}
+  audioMixer: {fileID: 24100000, guid: 1a84771493f61ba46bc990e08aa698fc, type: 2}
 --- !u!4 &592956450
 Transform:
   m_ObjectHideFlags: 0

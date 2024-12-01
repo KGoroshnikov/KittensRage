@@ -92,6 +92,7 @@ public class GameUIManager : MonoBehaviour
     }
 
     public void ReloadLvl(){
+        gameManager.TurnMusicOff();
         uisounds.PlayOneShot(uiClips[1]);
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
