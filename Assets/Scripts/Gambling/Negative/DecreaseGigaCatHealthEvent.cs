@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gambling.Negative
 {
-    [Serializable, CreateAssetMenu(menuName = "Gambling/Positive/Increase Giga Cat Health")]
+    [Serializable, CreateAssetMenu(menuName = "Gambling/Negative/Decrease Giga Cat Health")]
     public class DecreaseGigaCatHealthEvent : GamblingEvent
     {
         [SerializeField] private float factor = 1.3f;

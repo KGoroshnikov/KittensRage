@@ -9,7 +9,7 @@ namespace Gambling.Negative
     {
         [SerializeField] private float factor = 1.3f;
         
-        public override string Name => "Уменьшить силу взрыва";
+        public override string Name => "Уменьшение силы взрыва";
         private readonly List<GameObject> _objects = new();
         public override void Execute(GamblingManager manager)
         {
