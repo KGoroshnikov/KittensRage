@@ -21,6 +21,7 @@ public class StupidThrowableCat : ThrowableCat
         dir = vel.normalized;
         active = true;
         if (trailVFX != null)trailVFX.Play();
+        throwSound.Play();
     }
 
     void Update(){
@@ -36,6 +37,7 @@ public class StupidThrowableCat : ThrowableCat
 
     protected override void OnCollisionEnter(Collision other)
     {
+        hitSound.Play();
         if (trailVFX != null)trailVFX.Stop();
         if (AmountOfAvaliableDamage == 0) return;
         

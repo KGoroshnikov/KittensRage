@@ -6,10 +6,17 @@ public class VelocityDamageHandler : MonoBehaviour
 {
     [SerializeField] private float safeVelocityLimit = 10;
     [SerializeField] private float damageMultiplier = 1;
+    private bool canTakeDamage;
+
+    void Start(){
+        Invoke("CanTakeGamage", 1.5f);
+    }
+    void CanTakeGamage() => canTakeDamage = true;
 
 
     private void OnCollisionEnter(Collision other)
     {
+        if (!canTakeDamage) return;
         var vel = other.relativeVelocity.magnitude;
         if (vel < safeVelocityLimit) return;
         var damage = vel * vel * damageMultiplier * 0.1f;

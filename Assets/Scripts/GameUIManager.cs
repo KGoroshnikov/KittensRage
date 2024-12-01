@@ -9,6 +9,8 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private Animator victoryAnim;
     [SerializeField] private Animator defeatAnim;
     [SerializeField] private Animator exitWarningAnim;
+
+    [SerializeField] private GameManager gameManager;
     
     [SerializeField] private Image[] winStars;
     [SerializeField] private Image[] defeatStars;
@@ -25,6 +27,9 @@ public class GameUIManager : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource source;
     [SerializeField] private AudioClip victorySound;
+
+    [SerializeField] private AudioSource uisounds;
+    [SerializeField] private AudioClip[] uiClips; 
     
 
     public void Win(int stars){
@@ -55,32 +60,39 @@ public class GameUIManager : MonoBehaviour
         for(int i = 0; i < objectsDestroyed.Length; i++){
             objectsDestroyed[i].text = "OBJECTS DESTROYED: <color=#BA60FF>" + objDestr + "</color>";
         }
-        string nameLvl = SceneManager.GetActiveScene().name;
-        lvlText.text = "LEVEL <COLOR=#FFBA00>" + nameLvl[nameLvl.Length - 1] + "</COLOR> COMPLETE!";
+        string nameLvl = SceneManager.GetActiveScene().name.Substring(5);
+        lvlText.text = "LEVEL <COLOR=#FFBA00>" + nameLvl + "</COLOR> COMPLETE!";
     }
 
     public void ExitToMenu(){
+        uisounds.PlayOneShot(uiClips[2]);
         exitWarningAnim.gameObject.SetActive(true);
         exitWarningAnim.Play("ExitAppear", -1, 0);
     }
 
     public void CloseExitMenu(){
+        uisounds.PlayOneShot(uiClips[0]);
         exitWarningAnim.gameObject.SetActive(false);
     }
 
     public void ConfirmExit(){
+        uisounds.PlayOneShot(uiClips[2]);
+        gameManager.TurnMusicOff();
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
         Invoke("LoadMenu", 2);
     }
 
     public void NextLvl(){
+        uisounds.PlayOneShot(uiClips[1]);
+        gameManager.TurnMusicOff();
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
         Invoke("LoadNextLvl", 2);
     }
 
     public void ReloadLvl(){
+        uisounds.PlayOneShot(uiClips[1]);
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
         Invoke("ReloadCurrentLvl", 2);

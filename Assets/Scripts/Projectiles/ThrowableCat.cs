@@ -8,8 +8,8 @@ public class ThrowableCat : MonoBehaviour
     [SerializeField] protected float timeDespawn = 5;
     public GameManager.catTypes type;
     [SerializeField] protected int AmountOfAvaliableDamage;
-    [SerializeField] private AudioSource throwSound;
-    [SerializeField] private AudioSource hitSound;
+    [SerializeField] protected AudioSource throwSound;
+    [SerializeField] protected AudioSource hitSound;
     protected int maxAmountDmg;
 
     [SerializeField] protected VisualEffect vfxPuff;

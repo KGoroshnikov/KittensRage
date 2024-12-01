@@ -362,7 +362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faeedd1cbdd243a69bb3b4666cf68ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMax: 1000
+  healthMax: 500
   health: 100
   breakVFX: {fileID: 6080457496481603008}
   onZeroHealth:
@@ -444,7 +444,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 5bd7f56ef78071a409c8fef4e945d89c, type: 3}
   m_Resource: {fileID: 8300000, guid: 5bd7f56ef78071a409c8fef4e945d89c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
