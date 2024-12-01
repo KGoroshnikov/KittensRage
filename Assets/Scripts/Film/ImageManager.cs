@@ -26,6 +26,9 @@ public class ImageManager : MonoBehaviour
         [HideInInspector]
         public Vector3 targetScale;
     }
+    [SerializeField] private MusicManager musicManager;
+    [SerializeField] private AudioSource audioSource;
+    private bool fadingMusic;
 
 
     void Start()
@@ -49,6 +52,8 @@ public class ImageManager : MonoBehaviour
 
         int _idx = frameData[currentFrame].activeImg;
         sprites[1-_idx].material.SetTexture("_MainTex_1", frameData[currentFrame].nextSprite.texture);
+
+        musicManager.FadeMusic(audioSource, false, 4f, 0.5f);
     }
 
     void SKIP(){
@@ -102,9 +107,18 @@ public class ImageManager : MonoBehaviour
                 return;
             }
 
+            if (currentFrame >= frameData.Length - 1 && !fadingMusic){
+                fadingMusic = true;
+                Invoke("FadeMusic", frameData[currentFrame].timeImg - 2);
+            }
+
             _idx = frameData[currentFrame].activeImg;
             if (frameData[currentFrame].nextSprite != null) sprites[1-_idx].material.SetTexture("_MainTex_1", frameData[currentFrame].nextSprite.texture);
         }
+    }
+
+    void FadeMusic(){
+        musicManager.FadeMusic(audioSource, true, 1.5f);
     }
 
     void SetAlpha(SpriteRenderer spriteRenderer, float alpha)

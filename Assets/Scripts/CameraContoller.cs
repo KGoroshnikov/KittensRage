@@ -31,7 +31,7 @@ public class CameraController : MonoBehaviour
     }
     private shootingState m_shootingState;
 
-    private int fps;
+    //private int fps;
 
     private bool active;
 
@@ -63,7 +63,7 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        fps = (int)(1.0/Time.deltaTime);
+        //fps = (int)(1.0/Time.deltaTime);
         if (!active) return;
         if (m_shootingState == shootingState.shooting){
             camLerpT += Time.deltaTime / timeShootPos;
@@ -137,11 +137,11 @@ public class CameraController : MonoBehaviour
         cam.orthographicSize = beforeShootSize;
     }
 
-    void OnGUI()
+    /*void OnGUI()
     {
         GUIStyle guiStyle = new GUIStyle();
         guiStyle.normal.textColor = Color.red;
         guiStyle.fontSize = 36;
         GUI.Label(new Rect(200, 200, 300, 200), "FPS: " + fps.ToString(), guiStyle);
-    }
+    }*/
 }

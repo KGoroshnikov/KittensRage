@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private ArcherAI[] allRats;
 
+    [SerializeField] private AudioSource mainMusic;
+    [SerializeField] private MusicManager musicManager;
+
     private float startTime;
     private float endTime;
 
@@ -74,6 +77,7 @@ public class GameManager : MonoBehaviour
 
         startAmountOfObjects = lvlObjects.transform.childCount;
         InvokeRepeating("CheckLevel", 0.5f, 0.5f);
+        musicManager.FadeMusic(mainMusic, false, 3, 0.8f);
     }
     void CheckLevel(){
         float destruction = 1.0f - (float)lvlObjects.transform.childCount / (float)startAmountOfObjects;
@@ -86,6 +90,9 @@ public class GameManager : MonoBehaviour
             StopTimer();
             Invoke("Win", 3);
             gigaCatAI.StopMe();
+            for(int i = 0; i < allRats.Length; i++){
+                if (allRats[i] != null) allRats[i].AllowAttack(true);
+            }
             //Win();
             return;
         }
@@ -93,8 +100,15 @@ public class GameManager : MonoBehaviour
             CancelInvoke("CheckLevel");
             StopTimer();
             Invoke("Loose", 3);
+            for(int i = 0; i < allRats.Length; i++){
+                if (allRats[i] != null) allRats[i].AllowAttack(true);
+            }
             //Loose();
         }
+    }
+
+    public void TurnMusicOff(){
+        musicManager.FadeMusic(mainMusic, true, 1.5f);
     }
 
     void StartGame(){
@@ -208,6 +222,7 @@ public class GameManager : MonoBehaviour
                                 }
                                 Destroy(allCatsToChoose[i].obj);
                             }*/
+                            spawnedPrefs.Reverse();
                             catSling.GetCats(spawnedPrefs);
                         }
                     }
@@ -228,7 +243,7 @@ public class GameManager : MonoBehaviour
                 StartTimer();
 
                 for(int i = 0; i < allRats.Length; i++){
-                    allRats[i].AllowAttack();
+                    allRats[i].AllowAttack(true);
                 }
 
                 //Invoke("Win", 5);
