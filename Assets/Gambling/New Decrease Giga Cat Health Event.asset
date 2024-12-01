@@ -9,6 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: af0c7b1a8b6d45e78db9d9a61ac4d343, type: 3}
-  m_Name: New Invert Control Event
+  m_Script: {fileID: 11500000, guid: bbae2505340349908c541f35e33e939c, type: 3}
+  m_Name: New Decrease Giga Cat Health Event
   m_EditorClassIdentifier: 
+  factor: 1.3

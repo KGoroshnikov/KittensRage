@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,7 +12,7 @@ namespace Gambling
         public HealthManager gigaCatHealth;
         public MeteorSource[] meteorSources;
         public GameObject ratTowerPrefab;
-        public Transform ratTowerParent;
+        public List<Transform> ratTowerParentVariants;
         
         private Camera cam;
         private int _result;
@@ -21,11 +22,13 @@ namespace Gambling
         private float _endAngle;
         
         [Header("UI Settings")]
+        [SerializeField] private TMP_Text[] variants;
         [SerializeField] private RectTransform wheel;
-        [SerializeField] private GameObject resultCard;
-        [SerializeField] private TMP_Text cardText;
+        // [SerializeField] private GameObject resultCard;
+        // [SerializeField] private TMP_Text cardText;
         [SerializeField] private float rollCount = 3;
         [SerializeField] private float rollTime = 3;
+        [SerializeField] private float rollCompletionTime = 1;
         
         
         // Хорошие:
@@ -37,11 +40,16 @@ namespace Gambling
         //  + Удаление случайного кота из колоды
         //  + Взрывы уменьшаются 
         //  + Добавление крысы на уровень на башне ( можно, чтобы справа от основного уровня появлялась башня с крысой, башня есть в префабах)
-        //  - Управление инвертируется на выстрел
+        //  + У большого кота отнимается хп 
         [SerializeField] private GamblingEvent[] gamblingEvents;
         
-        private void Start(){
+        private void Start()
+        {
+            gigaCatHealth ??= GameObject.FindWithTag("GigaCat").GetComponent<HealthManager>();
+            meteorSources ??= FindObjectsByType<MeteorSource>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             cam = Camera.main;
+            for (var i = 0; i < gamblingEvents.Length; i++)
+                variants[i].text = gamblingEvents[i].Name;
         }
 
         public void RollClicked()
@@ -55,29 +63,38 @@ namespace Gambling
         public void RollExecute()
         {
             // Если без окна с названием события то закоментировать 1 строку ниже
-            resultCard.SetActive(false);
-            gamblingEvents[_result].Execute(this);
+            // resultCard.SetActive(false);
             wheel.gameObject.SetActive(false);
+            gamblingEvents[_result].Execute(this);
         }
 
+        private void RollCompleted()
+        {
+            // cardText.text = gamblingEvents[_result].Name;
+            // resultCard.SetActive(true);
+            // Если без окна с названием события то закоментировать 2 строки выше и раскоментировать 1 ниже
+            RollExecute();
+        }
 
         private void FixedUpdate()
         {
             if (!_isRolling) return;
             if (_time >= rollTime)
             {
-                cardText.text = gamblingEvents[_result].Name;
-                resultCard.SetActive(true);
-                // Если без окна с названием события то закоментировать 2 строки выше и раскоментировать 1 ниже
-                // RollExecute();
                 _isRolling = false;
+                Invoke(nameof(RollCompleted), rollCompletionTime);
                 return;
             }
             wheel.rotation = Quaternion.Euler(
                 wheel.rotation.eulerAngles.x, 
                 wheel.rotation.eulerAngles.y, 
-                Mathf.Lerp(_startAngle, _endAngle, _time / rollTime));
+                Mathf.Lerp(_startAngle, _endAngle, EaseFunction(_time / rollTime)));
             _time += Time.fixedDeltaTime;
+        }
+
+        private float EaseFunction(float x)
+        {
+            return x * x * (3 - 2 * x);
         }
 
 
