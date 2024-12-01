@@ -19,6 +19,13 @@ public class Menu : MonoBehaviour
     [SerializeField] private GameObject imgMusic;
     [SerializeField] private GameObject imgBloom;
 
+    [Header("Audio")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] uiSounds;
+    [SerializeField] private MusicManager musicManager;
+    [SerializeField] private AudioSource musicSource;
+    
+
     void Start(){
         animatorSigmaCat.SetTrigger("Idle");
         animatorFade.enabled = true;
@@ -49,7 +56,18 @@ public class Menu : MonoBehaviour
         ableToPressBtns = true;
     }
 
+    public void PlayBtnSound(){
+        audioSource.PlayOneShot(uiSounds[0]);
+    }
+    public void PlayPlaySound(){
+        audioSource.PlayOneShot(uiSounds[1]);
+    }
+    public void PlayCancelSound(){
+        audioSource.PlayOneShot(uiSounds[2]);
+    }
+
     public void TurnBloom(){
+        PlayBtnSound();
         bloomIsON = !bloomIsON;
 
         PlayerPrefs.SetInt("BloomSettings", bloomIsON ? 1 : 0);
@@ -62,6 +80,8 @@ public class Menu : MonoBehaviour
     }
 
     public void WatchTrailerAgain(){
+        PlayBtnSound();
+        musicManager.FadeMusic(musicSource, true, 1.5f);
         PlayerPrefs.SetInt("WatchedTrailer", 0);
         animatorFade.SetTrigger("FadeIn");
         Invoke("watchTrailer", 2);
@@ -72,6 +92,7 @@ public class Menu : MonoBehaviour
     }
 
     public void MainSoundBtn(){
+        PlayBtnSound();
         soundIsON = !soundIsON;
 
         PlayerPrefs.SetInt("SoundSettings", soundIsON ? 1 : 0);
@@ -86,6 +107,7 @@ public class Menu : MonoBehaviour
         }
     }
     public void MusicBtn(){
+        PlayBtnSound();
         musicIsON = !musicIsON;
 
         PlayerPrefs.SetInt("MusicSettings", musicIsON ? 1 : 0);
@@ -95,7 +117,9 @@ public class Menu : MonoBehaviour
     }
 
     public void PlayButton(){
+        PlayPlaySound();
         if (!ableToPressBtns) return;
+        musicManager.FadeMusic(musicSource, true, 1.5f);
         animatorFade.enabled = true;
         animatorFade.SetTrigger("FadeIn");
         Invoke("LoadFirstLvl", 2);
@@ -106,12 +130,14 @@ public class Menu : MonoBehaviour
     }
 
     public void ExitApp(){
+        PlayCancelSound();
         if (!ableToPressBtns) return;
         exitWarningAnim.gameObject.SetActive(true);
         exitWarningAnim.Play("ExitAppear", -1, 0);
     }
 
     public void CloseExitMenu(){
+        PlayBtnSound();
         exitWarningAnim.gameObject.SetActive(false);
     }
 

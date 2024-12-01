@@ -32,6 +32,7 @@ public class TwinsThrowableCat : ThrowableCat
             childsRB[1].AddForce(vel + offsetVel, ForceMode.Impulse);
         }
         for(int i = 0; i < trailsVFX.Length; i++) trailsVFX[i].Play();
+        throwSound.Play();
     }
 
     public override void MakeMeKinematic(bool _state)
@@ -55,7 +56,7 @@ public class TwinsThrowableCat : ThrowableCat
 
     public void TwinDidDamage(GameObject who, HealthManager hpDamaged){
         int aval = childDamageCount[who];
-
+        hitSound.Play();
         hpDamaged.ChangeHealth(-hitDamange * (float)aval / (float)maxAmountDmg);
 
         childDamageCount[who] = childDamageCount[who] - 1;

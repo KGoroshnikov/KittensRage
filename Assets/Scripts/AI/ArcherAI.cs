@@ -30,8 +30,8 @@ namespace AI
             target = GameObject.FindWithTag("GigaCat").transform;
         }
 
-        public void AllowAttack(){
-            allowedToAttack = true;
+        public void AllowAttack(bool _active){
+            allowedToAttack = _active;
         }
 
         private void OnDrawGizmosSelected()
